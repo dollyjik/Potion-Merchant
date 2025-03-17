@@ -2,14 +2,29 @@ using UnityEngine;
 
 public class JumpState : PlayerState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void Enter()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Do()
+    {
+        Controller.Jump();
+        Controller.readyToJump = false;
+        
+        if (Controller.isGrounded)
+        {
+            IsComplete = true;
+            Controller.readyToJump = true;
+        }   
+    }
+
+    public override void FixedDo()
+    {
+        
+    }
+
+    public override void Exit()
     {
         
     }

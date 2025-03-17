@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
-    private bool _readyToJump;
+    public bool readyToJump;
     
     [Header("Keybindings")]
     public KeyCode jumpKey = KeyCode.Space;
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask whatIsGround;
-    private bool _isGrounded;
+    public bool isGrounded;
     
     
     public Transform orientation;
@@ -38,6 +38,13 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        //States
+        idleState.Setup(_rigidbody, this);
+        jumpState.Setup(_rigidbody, this);
+        walkState.Setup(_rigidbody, this);
+
+        playerState = idleState;
+        
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.freezeRotation = true;
     }
@@ -45,51 +52,79 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         GroundCheck();
-        MyInput();
+        GetInput();
         SpeedControl();
+        playerState.Do();
+        Debug.Log(playerState);
     }
 
+    private void LateUpdate()
+    {
+        SelectState();
+    }
+
+    private void FixedUpdate()
+    {
+        playerState.FixedDo();
+    }
+    
+    private void SelectState()
+    {
+        PlayerState oldState = playerState;
+
+        if (isGrounded)
+        {
+            if (_horizontalInput == 0 && _verticalInput == 0)
+            {
+                playerState = idleState;
+            }
+            else
+            {
+                playerState = walkState;
+            }
+        }
+        if (Input.GetKeyDown(jumpKey) && readyToJump && isGrounded)
+        {
+            playerState = jumpState;
+        }
+        
+
+        if (oldState != playerState || oldState.IsComplete)
+        {
+            oldState.Exit();
+            playerState.Initialise();
+            playerState.Enter();
+        }
+    }
     private void GroundCheck()
     {
-        _isGrounded = Physics.Raycast(transform.position, Vector3.down, (playerHeight * 0.5f) + 0.2f, whatIsGround);
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, (playerHeight * 0.5f) + 0.2f, whatIsGround);
 
-        if (_isGrounded)
+        if (isGrounded)
         {
             _rigidbody.linearDamping = groundDrag;
-            _readyToJump = true;
+            readyToJump = true;
         }
         else
             _rigidbody.linearDamping = 0f;
     }
 
-    private void FixedUpdate()
-    {
-        MovePlayer();
-    }
-
-    private void MyInput()
+    private void GetInput()
     {
         _horizontalInput = Input.GetAxis("Horizontal");
         _verticalInput = Input.GetAxis("Vertical");
 
-        if (Input.GetKeyDown(jumpKey) && _readyToJump && _isGrounded)
-        {
-            _readyToJump = false;
-            
-            Jump();
-            
-            Invoke(nameof(ResetJump), jumpCooldown);
-        }
+        
     }
 
-    private void MovePlayer()
+    public void MovePlayer()
     {
         _movementDirection = orientation.forward * _verticalInput + orientation.right * _horizontalInput;
 
-        if (_isGrounded) 
+        if (isGrounded) 
             _rigidbody.AddForce(_movementDirection.normalized * (moveSpeed * 10f), ForceMode.Force);
 
-        else if (!_isGrounded)
+        else if (!isGrounded)
             _rigidbody.AddForce(_movementDirection.normalized * (moveSpeed * 10f * airMultiplier), ForceMode.Force);
     }
 
@@ -104,15 +139,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Jump()
+    internal void Jump()
     {
         _rigidbody.linearVelocity = new Vector3(_rigidbody.linearVelocity.x, 0, _rigidbody.linearVelocity.z);
         
         _rigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
 
-    private void ResetJump()
-    {
-        _readyToJump = true;
-    }
 }
