@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     [Header("")]
     private float _horizontalInput;
     private float _verticalInput;
-    
+    public Transform cameraOrientation;
     protected CharacterController CharController;
     protected Vector3 Velocity;
 
@@ -120,8 +120,13 @@ public class PlayerController : MonoBehaviour
 
     public void HandleMovement()
     {
-        Vector3 move = transform.right * _horizontalInput + transform.forward * _verticalInput;
-        CharController.Move(move * (moveSpeed * Time.deltaTime));
+        Vector3 moveDirection = cameraOrientation.forward * _verticalInput 
+                                + cameraOrientation.right * _horizontalInput;
+
+        moveDirection.y = 0; // Prevent movement from affecting Y-axis
+        //moveDirection.Normalize(); // Normalize to prevent diagonal speed boost
+
+        CharController.Move(moveDirection * (moveSpeed * Time.deltaTime));
     }
 
     public void Jump()
