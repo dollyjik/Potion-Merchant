@@ -9,13 +9,11 @@ public class JumpState : PlayerState
 
     public override void Do()
     {
-        Controller.Jump();
-        Controller.readyToJump = false;
+        PlayController.Jump();
         
-        if (Controller.isGrounded)
+        if (PlayController.isGrounded)
         {
             IsComplete = true;
-            Controller.readyToJump = true;
         }   
     }
 

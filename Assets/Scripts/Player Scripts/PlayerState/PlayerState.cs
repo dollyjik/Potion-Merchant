@@ -8,8 +8,8 @@ public abstract class PlayerState : MonoBehaviour
     
     public float GameTime => UnityEngine.Time.time - StartTime;
 
-    protected Rigidbody Rigidbody;
-    protected PlayerController Controller;
+    protected CharacterController CharController;
+    protected PlayerController PlayController;
 
     public virtual void Enter()
     {
@@ -31,10 +31,10 @@ public abstract class PlayerState : MonoBehaviour
         
     }
 
-    public void Setup(Rigidbody _rigidbody, PlayerController _controller)
+    public void Setup(CharacterController charController, PlayerController playController)
     {
-        Rigidbody = _rigidbody;
-        Controller = _controller;
+        CharController = charController;
+        PlayController = playController;
     }
 
     public void Initialise()

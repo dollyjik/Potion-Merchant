@@ -14,7 +14,7 @@ public class WalkState : PlayerState
 
     public override void FixedDo()
     {
-        Controller.MovePlayer();
+        PlayController.HandleMovement();
     }
 
     public override void Exit()

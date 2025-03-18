@@ -10,51 +10,49 @@ public class PlayerController : MonoBehaviour
     public WalkState walkState;
 
     [Header("Movement")] 
-    public float moveSpeed;
-    public float groundDrag;
+    [SerializeField] private float moveSpeed;
     
     [Header("Jumping")]
-    public float jumpForce;
-    public float jumpCooldown;
-    public float airMultiplier;
-    public bool readyToJump;
+    [SerializeField] private float jumpForce;
+    [SerializeField] private float gravity = -9.81f;
+    
+    [Header("Ground Check")]
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float groundDistance = 0.4f;
+    [SerializeField] private LayerMask groundMask;
+    public bool isGrounded;
     
     [Header("Keybindings")]
     public KeyCode jumpKey = KeyCode.Space;
     
-    [Header("Ground Check")]
-    public float playerHeight;
-    public LayerMask whatIsGround;
-    public bool isGrounded;
-    
-    
-    public Transform orientation;
+    [Header("")]
     private float _horizontalInput;
     private float _verticalInput;
     
-    private Vector3 _movementDirection;
-    
-    private Rigidbody _rigidbody;
+    protected CharacterController CharController;
+    protected Vector3 Velocity;
+
+    private void Awake()
+    {
+        CharController = GetComponent<CharacterController>();
+    }
 
     private void Start()
     {
         //States
-        idleState.Setup(_rigidbody, this);
-        jumpState.Setup(_rigidbody, this);
-        walkState.Setup(_rigidbody, this);
+        idleState.Setup(CharController, this);
+        jumpState.Setup(CharController, this);
+        walkState.Setup(CharController, this);
 
         playerState = idleState;
-        
-        _rigidbody = GetComponent<Rigidbody>();
-        _rigidbody.freezeRotation = true;
     }
 
     private void Update()
     {
         GroundCheck();
         GetInput();
-        SpeedControl();
         playerState.Do();
+        ApplyGravity();
         Debug.Log(playerState);
     }
 
@@ -83,7 +81,7 @@ public class PlayerController : MonoBehaviour
                 playerState = walkState;
             }
         }
-        if (Input.GetKeyDown(jumpKey) && readyToJump && isGrounded)
+        if (Input.GetKeyDown(jumpKey) && isGrounded)
         {
             playerState = jumpState;
         }
@@ -98,52 +96,45 @@ public class PlayerController : MonoBehaviour
     }
     private void GroundCheck()
     {
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, (playerHeight * 0.5f) + 0.2f, whatIsGround);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+    }
 
-        if (isGrounded)
+    private void ApplyGravity()
+    {
+        if (isGrounded && Velocity.y < 0)
         {
-            _rigidbody.linearDamping = groundDrag;
-            readyToJump = true;
+            Velocity.y = -2f;
         }
         else
-            _rigidbody.linearDamping = 0f;
+        {
+            Velocity.y += gravity * Time.deltaTime;
+        }
+        CharController.Move(Velocity * Time.deltaTime);
     }
 
     private void GetInput()
     {
         _horizontalInput = Input.GetAxis("Horizontal");
         _verticalInput = Input.GetAxis("Vertical");
-
-        
     }
 
-    public void MovePlayer()
+    public void HandleMovement()
     {
-        _movementDirection = orientation.forward * _verticalInput + orientation.right * _horizontalInput;
-
-        if (isGrounded) 
-            _rigidbody.AddForce(_movementDirection.normalized * (moveSpeed * 10f), ForceMode.Force);
-
-        else if (!isGrounded)
-            _rigidbody.AddForce(_movementDirection.normalized * (moveSpeed * 10f * airMultiplier), ForceMode.Force);
+        Vector3 move = transform.right * _horizontalInput + transform.forward * _verticalInput;
+        CharController.Move(move * (moveSpeed * Time.deltaTime));
     }
 
-    private void SpeedControl()
+    public void Jump()
     {
-        Vector3 flatVelocity = new Vector3(_rigidbody.linearVelocity.x, 0, _rigidbody.linearVelocity.z);
-
-        if (flatVelocity.magnitude > moveSpeed)
+        if (isGrounded)
         {
-            Vector3 limitedVelocity = flatVelocity.normalized * moveSpeed;
-            _rigidbody.linearVelocity = new Vector3(limitedVelocity.x, _rigidbody.linearVelocity.y, limitedVelocity.z);
+            Velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
         }
     }
 
-    internal void Jump()
+    private void OnDrawGizmosSelected()
     {
-        _rigidbody.linearVelocity = new Vector3(_rigidbody.linearVelocity.x, 0, _rigidbody.linearVelocity.z);
-        
-        _rigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(groundCheck.position, groundDistance);
     }
-
 }
