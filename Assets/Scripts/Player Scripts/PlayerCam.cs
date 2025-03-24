@@ -8,6 +8,7 @@ public class PlayerCam : MonoBehaviour
     
     public Transform orientation;
     public GameObject player;
+    public bool isUIOpened;
 
     private float _xRotation;
     private float _yRotation;
@@ -19,6 +20,21 @@ public class PlayerCam : MonoBehaviour
     }
 
     private void Update()
+    {
+        if (isUIOpened)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            MoveCamera();
+        }
+    }
+
+    private void MoveCamera()
     {
         float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * sensX;
         float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * sensY;

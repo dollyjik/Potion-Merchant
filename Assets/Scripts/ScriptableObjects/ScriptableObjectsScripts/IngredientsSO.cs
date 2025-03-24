@@ -7,6 +7,7 @@ public class IngredientsSO : ScriptableObject
     public string ingredientName;
     public IngredientType ingredientType;
     public Sprite ingredientIcon;
+	public GameObject ingredientPrefab;
     
     [Header("Bool's")]
     public bool isFarmable; //Is it obtainable via Farming

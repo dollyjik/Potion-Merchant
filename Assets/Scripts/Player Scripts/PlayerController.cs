@@ -25,13 +25,14 @@ public class PlayerController : MonoBehaviour
     [Header("Keybindings")]
     public KeyCode jumpKey = KeyCode.Space;
     
-    [Header("")]
+    [Header("Others")]
+    public Transform cameraOrientation;
     private float _horizontalInput;
     private float _verticalInput;
-    public Transform cameraOrientation;
     protected CharacterController CharController;
     protected Vector3 Velocity;
-
+    
+    
     private void Awake()
     {
         CharController = GetComponent<CharacterController>();
@@ -49,7 +50,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        GroundCheck();
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        
         GetInput();
         playerState.Do();
         ApplyGravity();
@@ -94,10 +96,6 @@ public class PlayerController : MonoBehaviour
             playerState.Enter();
         }
     }
-    private void GroundCheck()
-    {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-    }
 
     private void ApplyGravity()
     {
@@ -136,6 +134,7 @@ public class PlayerController : MonoBehaviour
             Velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
         }
     }
+
 
     private void OnDrawGizmos()
     {

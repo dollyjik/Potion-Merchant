@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class ObjectPickUp : MonoBehaviour
+public class InteractionSystem : MonoBehaviour
 {
     [Header("References")]
     public GameObject player;
@@ -9,11 +9,14 @@ public class ObjectPickUp : MonoBehaviour
     [SerializeField] private PlayerCam playerCam;
     [SerializeField] private GameObject heldObj;
     [SerializeField] private Rigidbody heldObjRb;
+    [SerializeField] private GameObject storeUI;
     
     [Header("Keybindings")]
     [SerializeField] private KeyCode interactionKey = KeyCode.E;
     [SerializeField] private KeyCode throwKey = KeyCode.Mouse0;
     [SerializeField] private KeyCode rotationKey = KeyCode.R;
+    [SerializeField] private KeyCode closeUIKey = KeyCode.Escape;
+
     
     [Header("Variables")]
     [SerializeField] private float throwForce;
@@ -29,6 +32,11 @@ public class ObjectPickUp : MonoBehaviour
 
     private void Update()
     {
+        if (playerCam.isUIOpened && Input.GetKeyDown(closeUIKey))
+        {
+            storeUI.SetActive(false);
+            playerCam.isUIOpened = false;
+        }
         if (Input.GetKeyDown(interactionKey))
         {
             if (heldObj == null)
@@ -39,6 +47,11 @@ public class ObjectPickUp : MonoBehaviour
                     if (hit.transform.gameObject.CompareTag("canPickUp"))
                     {
                         PickUpObject(hit.transform.gameObject);
+                    }
+                    else if (hit.transform.gameObject.CompareTag("owlInteraction"))
+                    {
+                        storeUI.SetActive(true);
+                        playerCam.isUIOpened = true;
                     }
                 }
             }
