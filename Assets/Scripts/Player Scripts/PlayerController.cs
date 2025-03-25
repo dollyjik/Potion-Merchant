@@ -3,12 +3,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {  
-    [Header("States")]
-    [SerializeField] private PlayerState playerState;
-    public IdleState idleState;
-    public JumpState jumpState;
-    public WalkState walkState;
-
     [Header("Movement")] 
     [SerializeField] private float moveSpeed;
     
@@ -38,65 +32,22 @@ public class PlayerController : MonoBehaviour
         CharController = GetComponent<CharacterController>();
     }
 
-    private void Start()
-    {
-        //States
-        idleState.Setup(CharController, this);
-        jumpState.Setup(CharController, this);
-        walkState.Setup(CharController, this);
-
-        playerState = idleState;
-    }
-
     private void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        
+        if (isGrounded && Input.GetKeyDown(jumpKey))
+        {
+            Jump();
+        }
         GetInput();
-        playerState.Do();
         ApplyGravity();
-        Debug.Log(playerState);
-    }
-
-    private void LateUpdate()
-    {
-        SelectState();
     }
 
     private void FixedUpdate()
     {
-        playerState.FixedDo();
+        HandleMovement();
     }
     
-    private void SelectState()
-    {
-        PlayerState oldState = playerState;
-
-        if (isGrounded)
-        {
-            if (_horizontalInput == 0 && _verticalInput == 0)
-            {
-                playerState = idleState;
-            }
-            else
-            {
-                playerState = walkState;
-            }
-        }
-        if (Input.GetKeyDown(jumpKey) && isGrounded)
-        {
-            playerState = jumpState;
-        }
-        
-
-        if (oldState != playerState || oldState.IsComplete)
-        {
-            oldState.Exit();
-            playerState.Initialise();
-            playerState.Enter();
-        }
-    }
-
     private void ApplyGravity()
     {
         if (isGrounded && Velocity.y < 0)
@@ -121,8 +72,7 @@ public class PlayerController : MonoBehaviour
         Vector3 moveDirection = cameraOrientation.forward * _verticalInput 
                                 + cameraOrientation.right * _horizontalInput;
 
-        moveDirection.y = 0; // Prevent movement from affecting Y-axis
-        //moveDirection.Normalize(); // Normalize to prevent diagonal speed boost
+        moveDirection.y = 0;
 
         CharController.Move(moveDirection * (moveSpeed * Time.deltaTime));
     }
