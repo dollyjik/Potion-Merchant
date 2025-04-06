@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3540953942640849975}
   - component: {fileID: 7284677683402491400}
   - component: {fileID: 8651484337659674067}
-  - component: {fileID: 4741956724248614195}
+  - component: {fileID: 1222668602147527548}
   m_Layer: 0
   m_Name: P1_Fruit
   m_TagString: Untagged
@@ -87,8 +87,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4741956724248614195
-BoxCollider:
+--- !u!64 &1222668602147527548
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,6 +105,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.0028189004, y: 0.0011725273, z: 0.0045772754}
-  m_Center: {x: -0.0011319005, y: -0.00029504485, z: 0.0022886945}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5028117597291946587, guid: 5ab30d6b1a768904496206d5685f96b6, type: 3}

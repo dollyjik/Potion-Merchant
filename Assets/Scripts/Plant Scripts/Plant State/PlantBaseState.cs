@@ -1,19 +1,10 @@
 using UnityEngine;
 
-public class PlantBaseState : BaseState
+public abstract class PlantBaseState : MonoBehaviour
 {
-    public override void EnterState()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void UpdateState()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void ExitState()
-    {
-        throw new System.NotImplementedException();
-    }
+    public abstract void EnterState(PlantStateMachine stateMachine);
+    
+    public abstract void UpdateState(PlantStateMachine stateMachine);
+    
+    public abstract void ExitState(PlantStateMachine stateMachine);
 }

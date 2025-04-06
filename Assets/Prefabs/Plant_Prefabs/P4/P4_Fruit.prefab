@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1326480921585332031}
   - component: {fileID: 8829921927201628853}
   - component: {fileID: 8047348320883192500}
-  - component: {fileID: 7587525526611330386}
+  - component: {fileID: -4225492178344837145}
+  - component: {fileID: 4146150598464747207}
   m_Layer: 0
   m_Name: P4_Fruit
   m_TagString: Untagged
@@ -27,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2401528312889510467}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -10.321095, y: -2.0167935, z: -14.92}
   m_LocalScale: {x: 100, y: 99.999985, z: 99.999985}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &8829921927201628853
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -87,8 +88,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7587525526611330386
-BoxCollider:
+--- !u!64 &-4225492178344837145
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,6 +106,19 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.062768064, y: 0.038530074, z: 0.059491474}
-  m_Center: {x: 0.0010567717, y: 0.0035085252, z: 0.029894056}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6099800089077584851, guid: 5c9f3a4cba3495141b1750448628e3ef, type: 3}
+--- !u!114 &4146150598464747207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2401528312889510467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c03e3365d7a591743a191241f93cebd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

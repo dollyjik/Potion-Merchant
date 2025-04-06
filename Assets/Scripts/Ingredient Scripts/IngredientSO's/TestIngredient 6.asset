@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8e92acffb043541b339682780a6fae, type: 3}
   m_Name: TestIngredient 6
   m_EditorClassIdentifier: 
-  ingredientName: ashashash
+  ingredientName: P5
   ingredientType: 2
-  ingredientIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  ingredientIcon: {fileID: 21300000, guid: fa38d3c760bf7d74199199aa013b78e6, type: 3}
+  ingredientPrefab: {fileID: 0}
   isFarmable: 0
   isPurchasable: 1
   ingredientPrice: 3656

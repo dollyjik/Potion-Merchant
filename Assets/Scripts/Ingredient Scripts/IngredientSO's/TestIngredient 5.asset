@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8e92acffb043541b339682780a6fae, type: 3}
   m_Name: TestIngredient 5
   m_EditorClassIdentifier: 
-  ingredientName: 3
+  ingredientName: P4
   ingredientType: 2
-  ingredientIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  ingredientIcon: {fileID: 21300000, guid: f9535816e31fd50499e14986de6f014b, type: 3}
+  ingredientPrefab: {fileID: 0}
   isFarmable: 0
   isPurchasable: 1
   ingredientPrice: 215

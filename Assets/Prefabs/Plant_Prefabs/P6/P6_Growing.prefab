@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 732505094287198923}
   - component: {fileID: 6233923093458751439}
   - component: {fileID: 1137654754014781592}
-  - component: {fileID: 7933899657958194511}
+  - component: {fileID: 7119286250300693977}
   m_Layer: 0
   m_Name: P6_Growing
   m_TagString: Untagged
@@ -87,8 +87,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7933899657958194511
-BoxCollider:
+--- !u!64 &7119286250300693977
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,6 +105,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.0018773784, y: 0.0018930921, z: 0.004681072}
-  m_Center: {x: 0.000015964586, y: 0.000039322244, z: -0.00007930619}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 469245201760230069, guid: 9149afe5f4178e64bbc87933d0a345f3, type: 3}

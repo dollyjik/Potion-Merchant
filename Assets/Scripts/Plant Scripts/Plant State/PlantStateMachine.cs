@@ -1,37 +1,33 @@
 using UnityEngine;
 
-public class PlantStateMachine : BaseStateMachine<PlantBaseState>
+public class PlantStateMachine : MonoBehaviour
 {
     [Header("State References")]
-    [SerializeField] private SaplingState saplingState;
-    [SerializeField] private GrowingState growingState;
-    [SerializeField] private FruitState fruitState;
-    [SerializeField] private GrownState grownState;
+    public SaplingState saplingState;
+    public GrowingState growingState;
+    public FruitState fruitState;
+    public GrownState grownState;
     public PlantBaseState currentState;
     
-    [Header("Other References")]
-    [SerializeField] private DayManager dayManager;
-    [SerializeField] private int plantDay;
-    [SerializeField] private float plantTime;
-    public override void Start()
+    public void Start()
     {
-        dayManager = FindAnyObjectByType<DayManager>();
-        plantDay = dayManager.currentDay;
-        plantTime = dayManager.timeOfDay;
-        
-        if(currentState == null)
+        if (currentState == null)
+        {
             currentState = saplingState;
+            currentState.EnterState(this);
+        }
     }
 
-    public override void Update()
+    public void Update()
     {
-        
+           currentState.UpdateState(this);
     }
     
-    public override void ChangeState(PlantBaseState newState)
+    public void ChangeState(PlantBaseState newState)
     {
-        currentState.ExitState();
+        currentState.ExitState(this);
         currentState = newState;
+        currentState.EnterState(this);
     }
 
 }

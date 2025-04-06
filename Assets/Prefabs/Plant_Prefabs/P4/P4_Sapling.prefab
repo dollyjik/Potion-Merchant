@@ -11,14 +11,15 @@ GameObject:
   - component: {fileID: 1380562080964207599}
   - component: {fileID: 4411098676368598826}
   - component: {fileID: 6680021451850417660}
-  - component: {fileID: 5102318291367633079}
+  - component: {fileID: 3985394148684022186}
+  - component: {fileID: 7048133536030579705}
   m_Layer: 0
   m_Name: P4_Sapling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1380562080964207599
 Transform:
   m_ObjectHideFlags: 0
@@ -27,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3003846211061850999}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071069, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -10.321095, y: -2.0167935, z: -1.97}
   m_LocalScale: {x: 150, y: 150, z: 150}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &4411098676368598826
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -87,8 +88,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5102318291367633079
-BoxCollider:
+--- !u!64 &3985394148684022186
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,6 +106,22 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.012553615, y: 0.007706016, z: 0.011898296}
-  m_Center: {x: 0.00023470701, y: 0.0007279757, z: 0.0059492514}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5287717329135111597, guid: 5c9f3a4cba3495141b1750448628e3ef, type: 3}
+--- !u!114 &7048133536030579705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003846211061850999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f057bd7b76c7bcf47b99e23458fd29f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growDuration: 10
+  startScale: {x: 150, y: 150, z: 150}
+  finishScale: {x: 300, y: 300, z: 300}

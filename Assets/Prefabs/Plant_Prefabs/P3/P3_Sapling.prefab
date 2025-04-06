@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1748982540306186254}
   - component: {fileID: 2300083647181196231}
   - component: {fileID: 3605604370489739181}
-  - component: {fileID: 1460292266410771688}
+  - component: {fileID: 5581904806735595965}
   m_Layer: 0
   m_Name: P3_Sapling
   m_TagString: Untagged
@@ -87,8 +87,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1460292266410771688
-BoxCollider:
+--- !u!64 &5581904806735595965
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,6 +105,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.025601631, y: 0.011026313, z: 0.019151783}
-  m_Center: {x: 0.00008177939, y: 0.0046564345, z: -0.0022718103}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -364044783463932134, guid: 93fdf4d1d6458b348a6110d67fabdf9e, type: 3}
