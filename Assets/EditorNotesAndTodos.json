@@ -1,0 +1,92 @@
+{
+    "notePages": [
+        {
+            "pageName": "Tasks",
+            "content": "Task 1: Her Bitkiye State Sistemi Yapılacak\r\nTask 2: Bütün RecipeSO'ler Eklenecek\r\nTask 3: Bütün IngredientSO'ler ve Prefab'leri Eklenecek\r\nTask 4: Bütün PotionSO'ler Eklenecek"
+        },
+        {
+            "pageName": "Notlar",
+            "content": "RecipeSO'lara ve İksirlere Rarity sistemi ekle\n\nP2_Growing pivot hatalı"
+        }
+    ],
+    "todoItems": [
+        {
+            "isComplete": false,
+            "text": "Task 1: Mushrooms",
+            "listName": "Task 1"
+        },
+        {
+            "isComplete": false,
+            "text": "Task 1: P1",
+            "listName": "Task 1"
+        },
+        {
+            "isComplete": true,
+            "text": "Task 1: P2",
+            "listName": "Task 1"
+        },
+        {
+            "isComplete": false,
+            "text": "Task 1: P3",
+            "listName": "Task 1"
+        },
+        {
+            "isComplete": true,
+            "text": "Task 1: P4",
+            "listName": "Task 1"
+        },
+        {
+            "isComplete": true,
+            "text": "Task 1: P5",
+            "listName": "Task 1"
+        },
+        {
+            "isComplete": false,
+            "text": "Task 1: P6",
+            "listName": "Task 1"
+        },
+        {
+            "isComplete": false,
+            "text": "Task 1: P7",
+            "listName": "Task 1"
+        },
+        {
+            "isComplete": false,
+            "text": "Task 1: P8",
+            "listName": "Task 1"
+        },
+        {
+            "isComplete": false,
+            "text": "Task 1: P9",
+            "listName": "Task 1"
+        },
+        {
+            "isComplete": false,
+            "text": "RecipeSO'lara ve İksirlere Rarity sistemi ekle",
+            "listName": "Others"
+        }
+    ],
+    "todoLists": [
+        {
+            "name": "Task 1",
+            "isExpanded": true
+        },
+        {
+            "name": "Task 2",
+            "isExpanded": true
+        },
+        {
+            "name": "Task 3",
+            "isExpanded": true
+        },
+        {
+            "name": "Task 4",
+            "isExpanded": true
+        },
+        {
+            "name": "Others",
+            "isExpanded": true
+        }
+    ],
+    "activePageIndex": 1
+}

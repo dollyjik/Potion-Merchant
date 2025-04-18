@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1794177340360005098}
   - component: {fileID: 6884967693973193908}
   - component: {fileID: -8685022744111943632}
+  - component: {fileID: 5949451673899957848}
   m_Layer: 0
   m_Name: P5_Sapling
   m_TagString: Untagged
@@ -27,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8924675928323649598}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071069, y: -0, z: 0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -10.307134, y: -1.9489881, z: 7.209801}
   m_LocalScale: {x: 6000, y: 6000, z: 6000}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &1794177340360005098
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -109,3 +110,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6462069239008413448, guid: 7af6552d3bb38f04aa1933f2ea0aeb7b, type: 3}
+--- !u!114 &5949451673899957848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8924675928323649598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f057bd7b76c7bcf47b99e23458fd29f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growDuration: 10
+  startScale: {x: 6000, y: 6000, z: 6000}
+  finishScale: {x: 14500, y: 14500, z: 14500}
+  onSaplingStateFinished: {fileID: 11400000, guid: 2aaad4a146dd29e459179763300ec71f, type: 2}

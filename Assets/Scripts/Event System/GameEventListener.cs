@@ -4,23 +4,43 @@ using UnityEngine.Events;
 
 [System.Serializable]
 public class CustomGameEvent : UnityEvent<Component, object> { }
+
+[System.Serializable]
+public struct GameEventPair
+{
+    public GameEvent gameEvent;
+    public CustomGameEvent response;
+}
+
 public class GameEventListener : MonoBehaviour
 {
-   public GameEvent gameEvent;
+    public GameEventPair[] eventPairs;
+    
+    private void OnEnable()
+    {
+        foreach (var pair in eventPairs)
+        {
+            pair.gameEvent.RegisterListener(this);
+        }
+    }
 
-   public CustomGameEvent response;
-   private void OnEnable()
-   {
-      gameEvent.RegisterListener(this);
-   }
+    private void OnDisable()
+    {
+        foreach (var pair in eventPairs)
+        {
+            pair.gameEvent.UnregisterListener(this);
+        }
+    }
 
-   private void OnDisable()
-   {
-      gameEvent.UnregisterListener(this);
-   }
-
-   public void OnEventRaised(Component sender, object data)
-   {
-      response.Invoke(sender, data);
-   }
+    public void OnEventRaised(GameEvent gameEvent, Component sender, object data)
+    {
+        foreach (var pair in eventPairs)
+        {
+            if (pair.gameEvent == gameEvent)
+            {
+                pair.response.Invoke(sender, data);
+                break;
+            }
+        }
+    }
 }

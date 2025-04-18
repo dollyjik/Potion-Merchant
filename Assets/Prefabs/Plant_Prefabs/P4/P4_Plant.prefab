@@ -187,10 +187,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: P4_Grown
       objectReference: {fileID: 0}
-    - target: {fileID: 7654109837659753638, guid: c81cfd522c1bdd54db4b087ba91552a5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7711087850803171248, guid: c81cfd522c1bdd54db4b087ba91552a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -261,14 +257,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 8467444572002714171}
     m_Modifications:
     - target: {fileID: 1326480921585332031, guid: b1dec31d639a46d408fcc6daae61560e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1326480921585332031, guid: b1dec31d639a46d408fcc6daae61560e, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1326480921585332031, guid: b1dec31d639a46d408fcc6daae61560e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -308,17 +296,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1326480921585332031, guid: b1dec31d639a46d408fcc6daae61560e, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2401528312889510467, guid: b1dec31d639a46d408fcc6daae61560e, type: 3}
       propertyPath: m_Name
       value: P4_Fruit
-      objectReference: {fileID: 0}
-    - target: {fileID: 2401528312889510467, guid: b1dec31d639a46d408fcc6daae61560e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -8,6 +8,8 @@ public class GrowingState : PlantBaseState
     public Vector3 startScale;
     public Vector3 finishScale;
 
+    public GameEvent onGrowingStateFinished;
+    
     public override void EnterState(PlantStateMachine stateMachine)
     {
         this.gameObject.SetActive(true);
@@ -29,6 +31,8 @@ public class GrowingState : PlantBaseState
 
     public override void ExitState(PlantStateMachine stateMachine)
     {
+        onGrowingStateFinished.Raise(this, stateMachine.currentState);
+
         this.gameObject.SetActive(false);
     }
 }

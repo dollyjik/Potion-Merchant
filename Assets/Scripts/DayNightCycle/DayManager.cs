@@ -10,6 +10,7 @@ public class DayManager : MonoBehaviour
     [SerializeField] private LightingPreset preset;
     [SerializeField] private TMP_Text clockText;
     [SerializeField] private TMP_Text currentDayText;
+    public GameEvent onDayFinished;
     [Header("Variables")]
     [Range(0, 24)] public float timeOfDay;
     private const float TimeOfDaySpeed = 0.01675f;
@@ -27,13 +28,24 @@ public class DayManager : MonoBehaviour
             timeOfDay %= 24f;
             UpdateLighting(timeOfDay / 24f);
             UpdateClock(timeOfDay);
+            FinishDay();
         }
         else
         {
             UpdateLighting(timeOfDay / 24f);
+            UpdateClock(timeOfDay);
         }
     }
 
+    private void FinishDay()
+    {
+        if (timeOfDay == 0f)
+        {
+            currentDay++;
+            onDayFinished.Raise(this, currentDay);
+        }
+    }
+    
     private void UpdateClock(float currentTime)
     {
         int hours = Mathf.FloorToInt(currentTime);

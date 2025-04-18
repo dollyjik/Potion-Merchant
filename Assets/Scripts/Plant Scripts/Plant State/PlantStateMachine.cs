@@ -30,4 +30,9 @@ public class PlantStateMachine : MonoBehaviour
         currentState.EnterState(this);
     }
 
+    public void OnEventRaised()
+    {
+        Debug.Log(currentState + "is finished.");
+    }
+
 }

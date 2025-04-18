@@ -8,6 +8,8 @@ public class SaplingState : PlantBaseState
     public Vector3 startScale;
     public Vector3 finishScale;
     
+    public GameEvent onSaplingStateFinished;
+    
     public override void EnterState(PlantStateMachine stateMachine)
     {
         this.gameObject.SetActive(true);
@@ -29,6 +31,7 @@ public class SaplingState : PlantBaseState
 
     public override void ExitState(PlantStateMachine stateMachine)
     {
+        onSaplingStateFinished.Raise(this, stateMachine.currentState);
         this.gameObject.SetActive(false);
     }
 }

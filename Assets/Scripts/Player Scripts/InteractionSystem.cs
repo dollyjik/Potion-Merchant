@@ -12,7 +12,8 @@ public class InteractionSystem : MonoBehaviour
     [SerializeField] private GameObject storeUI;
     
     [Header("Keybindings")]
-    [SerializeField] private KeyCode interactionKey = KeyCode.E;
+    [SerializeField] private KeyCode firstInteractionKey = KeyCode.E;
+    [SerializeField] private KeyCode secondInteractionKey = KeyCode.Mouse0;
     [SerializeField] private KeyCode throwKey = KeyCode.Mouse0;
     [SerializeField] private KeyCode rotationKey = KeyCode.R;
     [SerializeField] private KeyCode closeUIKey = KeyCode.Escape;
@@ -37,21 +38,32 @@ public class InteractionSystem : MonoBehaviour
             storeUI.SetActive(false);
             playerCam.isUIOpened = false;
         }
-        if (Input.GetKeyDown(interactionKey))
+        if (Input.GetKeyDown(firstInteractionKey) || Input.GetKeyDown(secondInteractionKey))
         {
             if (heldObj == null)
             {
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
                 {
-                    if (hit.transform.gameObject.CompareTag("canPickUp"))
+                    if (hit.transform.gameObject.CompareTag("canPickUp") && Input.GetKeyDown(firstInteractionKey))
                     {
                         PickUpObject(hit.transform.gameObject);
                     }
-                    else if (hit.transform.gameObject.CompareTag("owlInteraction"))
+                    else if (hit.transform.gameObject.CompareTag("owlInteraction") && Input.GetKeyDown(firstInteractionKey))
                     {
                         storeUI.SetActive(true);
                         playerCam.isUIOpened = true;
+                    }
+                    else if (hit.transform.TryGetComponent(out CauldronScript cauldronScript))
+                    {
+                        if (Input.GetKeyDown(firstInteractionKey))
+                        {
+                            cauldronScript.Craft();
+                        }
+                        else if (Input.GetKeyDown(secondInteractionKey))
+                        {
+                            cauldronScript.NextRecipe();
+                        }
                     }
                 }
             }

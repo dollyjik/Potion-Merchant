@@ -125,3 +125,4 @@ MonoBehaviour:
   growDuration: 10
   startScale: {x: 150, y: 150, z: 150}
   finishScale: {x: 300, y: 300, z: 300}
+  onSaplingStateFinished: {fileID: 11400000, guid: 2aaad4a146dd29e459179763300ec71f, type: 2}

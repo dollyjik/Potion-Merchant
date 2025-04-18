@@ -10,7 +10,7 @@ public class GameEvent : ScriptableObject
     {
         for (int i = 0; i < listeners.Count; i++)
         {
-            listeners[i].OnEventRaised(sender, data);
+            listeners[i].OnEventRaised(this, sender, data);
         }
     }
 

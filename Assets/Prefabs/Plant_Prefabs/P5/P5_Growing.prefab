@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1432967587511585110}
   - component: {fileID: 7318710761060200842}
   - component: {fileID: 3390326117475346674}
+  - component: {fileID: 3747585877049087233}
   m_Layer: 0
   m_Name: P5_Growing
   m_TagString: Untagged
@@ -27,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8178454476788102251}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071069, y: -0, z: 0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -10.311881, y: -1.9489903, z: 5.036}
   m_LocalScale: {x: 6000, y: 6000, z: 6000}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &1432967587511585110
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -109,3 +110,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2266886331552406869, guid: 7af6552d3bb38f04aa1933f2ea0aeb7b, type: 3}
+--- !u!114 &3747585877049087233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8178454476788102251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b7c5e404e9dc104eb9995c583556f50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growDuration: 0
+  startScale: {x: 0, y: 0, z: 0}
+  finishScale: {x: 0, y: 0, z: 0}
+  onGrowingStateFinished: {fileID: 11400000, guid: deaa7facce00e774392aec1644c770a8, type: 2}

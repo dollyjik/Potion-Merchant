@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlantScript : MonoBehaviour
 {
     
-    [Header("Other References")]
+    [Header("Day Manager References")]
     [SerializeField] private DayManager dayManager;
     [SerializeField] private int plantDay;
     [SerializeField] private float plantTime;
