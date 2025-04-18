@@ -16,7 +16,7 @@
             "listName": "Task 1"
         },
         {
-            "isComplete": false,
+            "isComplete": true,
             "text": "Task 1: P1",
             "listName": "Task 1"
         },
@@ -41,7 +41,7 @@
             "listName": "Task 1"
         },
         {
-            "isComplete": false,
+            "isComplete": true,
             "text": "Task 1: P6",
             "listName": "Task 1"
         },
@@ -51,12 +51,12 @@
             "listName": "Task 1"
         },
         {
-            "isComplete": false,
+            "isComplete": true,
             "text": "Task 1: P8",
             "listName": "Task 1"
         },
         {
-            "isComplete": false,
+            "isComplete": true,
             "text": "Task 1: P9",
             "listName": "Task 1"
         },
