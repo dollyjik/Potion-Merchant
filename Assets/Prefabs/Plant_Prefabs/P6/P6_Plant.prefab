@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4228078769447479883}
   - component: {fileID: 5186315736852543351}
   - component: {fileID: 7447381511659298644}
+  - component: {fileID: 829848045258763824}
   m_Layer: 0
   m_Name: P6_Plant
   m_TagString: Untagged
@@ -67,6 +68,27 @@ MonoBehaviour:
   fruitState: {fileID: 9148472344595216257}
   grownState: {fileID: 0}
   currentState: {fileID: 0}
+--- !u!65 &829848045258763824
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3825708827838533217}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.6056709, y: 3.8108053, z: 1.6690619}
+  m_Center: {x: 0.066841125, y: 1.8487196, z: -0.054437757}
 --- !u!1 &7585057196463406469
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +175,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: P6_Fruit
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6141553795743673942, guid: bbe601dc225d3a54ea5f1b25cd8870e3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2618673058785261068, guid: bbe601dc225d3a54ea5f1b25cd8870e3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -226,7 +253,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: P6_Sapling
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1718835136055486782, guid: a0ec3c628c9419a478f62149b7a0e251, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -261,7 +289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 732505094287198923, guid: 2353944bc3528a44986a48628ce32a45, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.885
       objectReference: {fileID: 0}
     - target: {fileID: 732505094287198923, guid: 2353944bc3528a44986a48628ce32a45, type: 3}
       propertyPath: m_LocalPosition.z
@@ -299,7 +327,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: P6_Growing
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7119286250300693977, guid: 2353944bc3528a44986a48628ce32a45, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

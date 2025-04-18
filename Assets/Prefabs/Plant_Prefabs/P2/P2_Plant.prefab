@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8985991052168469504}
   - component: {fileID: 7283441983202945135}
   - component: {fileID: 3399478123629765038}
+  - component: {fileID: 8098732379909521385}
   m_Layer: 0
   m_Name: P2_Plant
   m_TagString: Untagged
@@ -67,6 +68,27 @@ MonoBehaviour:
   fruitState: {fileID: 2424227336849488170}
   grownState: {fileID: 0}
   currentState: {fileID: 0}
+--- !u!65 &8098732379909521385
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3190884253601666396}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.419395, z: 1.4448591}
+  m_Center: {x: 0, y: 0.70450425, z: -0.22242957}
 --- !u!1 &7358852124769472696
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +175,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8267546705466530127, guid: 5817c27ba04cef74a9b664be23b25a7a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -226,7 +249,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: P2_Fruit
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4647698369660290024, guid: 50f995255ba10504dae1ef2bffbd8a5b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -259,9 +283,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: P2_Growing
       objectReference: {fileID: 0}
+    - target: {fileID: 4450558930061577870, guid: b0dab5efa3c3f1b489c72a8b7c583e16, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 94f148574f8a80b48a66198996251603, type: 2}
     - target: {fileID: 7465551200629899594, guid: b0dab5efa3c3f1b489c72a8b7c583e16, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7465551200629899594, guid: b0dab5efa3c3f1b489c72a8b7c583e16, type: 3}
       propertyPath: m_LocalPosition.y
@@ -299,7 +327,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -584034099533337548, guid: b0dab5efa3c3f1b489c72a8b7c583e16, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3132382817378772915}
   - component: {fileID: 8212998559070742185}
   - component: {fileID: 4470039309216917212}
+  - component: {fileID: 6706032348159655395}
   m_Layer: 0
   m_Name: P5_Plant
   m_TagString: Untagged
@@ -67,6 +68,27 @@ MonoBehaviour:
   fruitState: {fileID: 2338729762748703707}
   grownState: {fileID: 0}
   currentState: {fileID: 0}
+--- !u!65 &6706032348159655395
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845454865268426709}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.2665455, z: 1}
+  m_Center: {x: 0, y: 0.60619724, z: 0}
 --- !u!1 &2865898787492404284
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +215,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3390326117475346674, guid: f5bc443d7c9f53f45889fdb02f81a851, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -270,7 +293,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -8685022744111943632, guid: 7dd87add68b314d46aacff6d93f53756, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -347,7 +371,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5862242018530996115, guid: 6d77d74156c6797448efe10fa04ddb2c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

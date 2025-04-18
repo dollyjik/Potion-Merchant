@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1542688413632311654}
   - component: {fileID: 8637922759293166170}
   - component: {fileID: 3495351369575751162}
+  - component: {fileID: 3657369168327871405}
   m_Layer: 0
   m_Name: P9_Plant
   m_TagString: Untagged
@@ -67,6 +68,27 @@ MonoBehaviour:
   fruitState: {fileID: 8719612708350791936}
   grownState: {fileID: 6245948656317525192}
   currentState: {fileID: 0}
+--- !u!65 &3657369168327871405
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2644695382662325688}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.554659, y: 2.813087, z: 2.6789398}
+  m_Center: {x: -0.012259483, y: 1.3925335, z: -0.023438692}
 --- !u!1 &6605786002424541891
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +184,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -9001011405971043659, guid: 0f5750601b3378e4fa7197d31647bf5a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -268,7 +291,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8091919719530270537, guid: f916f3a51db45be40bbf96e3d009c5a8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -358,7 +382,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6078893334732439341, guid: 16e9ce400c5c16c42b7d262a64cc5433, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -445,7 +470,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4468259179845035474, guid: 7a79be6345065ef48bff41477f084707, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

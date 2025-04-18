@@ -6,7 +6,7 @@
         },
         {
             "pageName": "Notlar",
-            "content": "RecipeSO'lara ve İksirlere Rarity sistemi ekle\n\nP2_Growing pivot hatalı"
+            "content": "RecipeSO'lara ve İksirlere Rarity sistemi ekle\n"
         }
     ],
     "todoItems": [
@@ -88,5 +88,5 @@
             "isExpanded": true
         }
     ],
-    "activePageIndex": 1
+    "activePageIndex": 0
 }
