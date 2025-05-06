@@ -1,13 +1,21 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 public class CauldronScript : MonoBehaviour
 {
     [SerializeField] private List<RecipeSO> craftingRecipeSOList;
     [SerializeField] private BoxCollider placeItemsAreaBoxCollider;
     [SerializeField] private RecipeSO _craftingRecipeSO;
     [SerializeField] private Transform itemSpawnPoint;
+    [SerializeField] private TextMeshProUGUI recipeNameText;
+    [SerializeField] private int craftingRecipeListIndex;
+    [SerializeField] private Image craftingRecipeImage1;
+    [SerializeField] private Image craftingRecipeImage2;
+    [SerializeField] private Image craftingRecipeImage3;
+    
     private void Awake()
     {
         NextRecipe();
@@ -21,9 +29,45 @@ public class CauldronScript : MonoBehaviour
         }
         else
         {
-            int index = craftingRecipeSOList.IndexOf(_craftingRecipeSO);
-            index = (index + 1) % craftingRecipeSOList.Count;
-            _craftingRecipeSO = craftingRecipeSOList[index];
+            craftingRecipeListIndex = craftingRecipeSOList.IndexOf(_craftingRecipeSO);
+            craftingRecipeListIndex = (craftingRecipeListIndex + 1) % craftingRecipeSOList.Count;
+            _craftingRecipeSO = craftingRecipeSOList[craftingRecipeListIndex];
+        }
+
+        recipeNameText.text = _craftingRecipeSO.name;
+        if (_craftingRecipeSO.IngredientsSOList.Count() == 2)
+        {
+            craftingRecipeImage1.sprite = _craftingRecipeSO.IngredientsSOList[0].ingredientIcon;
+            craftingRecipeImage2.sprite = _craftingRecipeSO.IngredientsSOList[1].ingredientIcon;
+            craftingRecipeImage3.gameObject.SetActive(false);
+        }
+        else if (_craftingRecipeSO.IngredientsSOList.Count() == 3)
+        {
+            craftingRecipeImage3.gameObject.SetActive(true);
+            craftingRecipeImage1.sprite = _craftingRecipeSO.IngredientsSOList[0].ingredientIcon;
+            craftingRecipeImage2.sprite = _craftingRecipeSO.IngredientsSOList[1].ingredientIcon;
+            craftingRecipeImage3.sprite = _craftingRecipeSO.IngredientsSOList[2].ingredientIcon;
+        }
+    }
+
+    public void PreviousRecipe()
+    {
+        craftingRecipeListIndex = craftingRecipeSOList.IndexOf(_craftingRecipeSO);
+        craftingRecipeListIndex = (craftingRecipeListIndex - 1 + craftingRecipeSOList.Count) % craftingRecipeSOList.Count;
+        _craftingRecipeSO = craftingRecipeSOList[craftingRecipeListIndex];
+        recipeNameText.text = _craftingRecipeSO.name;
+        if (_craftingRecipeSO.IngredientsSOList.Count() == 2)
+        {
+            craftingRecipeImage1.sprite = _craftingRecipeSO.IngredientsSOList[0].ingredientIcon;
+            craftingRecipeImage2.sprite = _craftingRecipeSO.IngredientsSOList[1].ingredientIcon;
+            craftingRecipeImage3.gameObject.SetActive(false);
+        }
+        else if (_craftingRecipeSO.IngredientsSOList.Count() == 3)
+        {
+            craftingRecipeImage3.gameObject.SetActive(true);
+            craftingRecipeImage1.sprite = _craftingRecipeSO.IngredientsSOList[0].ingredientIcon;
+            craftingRecipeImage2.sprite = _craftingRecipeSO.IngredientsSOList[1].ingredientIcon;
+            craftingRecipeImage3.sprite = _craftingRecipeSO.IngredientsSOList[2].ingredientIcon;
         }
     }
 

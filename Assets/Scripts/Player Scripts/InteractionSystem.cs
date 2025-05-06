@@ -14,6 +14,7 @@ public class InteractionSystem : MonoBehaviour
     [Header("Keybindings")]
     [SerializeField] private KeyCode firstInteractionKey = KeyCode.E;
     [SerializeField] private KeyCode secondInteractionKey = KeyCode.Mouse0;
+    [SerializeField] private KeyCode thirdInteractionKey = KeyCode.Mouse2;
     [SerializeField] private KeyCode throwKey = KeyCode.Mouse0;
     [SerializeField] private KeyCode rotationKey = KeyCode.R;
     [SerializeField] private KeyCode closeUIKey = KeyCode.Escape;
@@ -60,9 +61,16 @@ public class InteractionSystem : MonoBehaviour
                         {
                             cauldronScript.Craft();
                         }
-                        else if (Input.GetKeyDown(secondInteractionKey))
+                        if (Input.GetKeyDown(thirdInteractionKey))
                         {
+                            Debug.Log("bb");
+
                             cauldronScript.NextRecipe();
+                        }
+                        if (Input.GetKeyDown(secondInteractionKey)) //HOCAYASORULACAK
+                        {
+                            Debug.Log("aa");
+                            cauldronScript.PreviousRecipe();
                         }
                     }
                 }

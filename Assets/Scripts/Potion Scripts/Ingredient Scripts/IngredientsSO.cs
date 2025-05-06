@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "IngredientsSO", menuName = "Scriptable Objects/Potions/IngredientsSO")]
 public class IngredientsSO : ScriptableObject
