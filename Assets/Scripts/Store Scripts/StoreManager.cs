@@ -20,17 +20,13 @@ public class StoreManager : MonoBehaviour
     
     public List<IngredientsSO> allIngredients;
     
-    private List<GameObject> _currentDisplayedItems = new List<GameObject>();
+    [SerializeField] private List<GameObject> _currentDisplayedItems = new List<GameObject>();
     private Button _currentActiveButton;
-    private Color _defaultButtonColor;
-    private Color _selectedButtonColor = new Color(.7f, .7f, 1f);
 
 
     private void Start()
     {
         PopulateStore("All");
-        
-        _defaultButtonColor = allButton.image.color;
         
         allButton.onClick.AddListener(() => FilterStore("All", allButton));
         seedButton.onClick.AddListener(() => FilterStore("Seed", seedButton));
@@ -65,6 +61,7 @@ public class StoreManager : MonoBehaviour
 
     private void BuyIngredient(IngredientsSO ingredient)
     {
+        Instantiate(ingredient.ingredientPrefab);
         Debug.Log($"Purchased: {ingredient.ingredientName} for ${ingredient.ingredientPrice}");
     }
 
@@ -87,10 +84,8 @@ public class StoreManager : MonoBehaviour
     {
         if (_currentActiveButton != null)
         {
-            _currentActiveButton.image.color = _defaultButtonColor;
         }
         
-        selectedButton.image.color = _selectedButtonColor;
         _currentActiveButton = selectedButton;
     }
 }

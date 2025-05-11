@@ -16,6 +16,10 @@ public class CauldronScript : MonoBehaviour
     [SerializeField] private Image craftingRecipeImage2;
     [SerializeField] private Image craftingRecipeImage3;
     
+    [SerializeField] private Image craftingRecipeImage1Parent;
+    [SerializeField] private Image craftingRecipeImage2Parent;
+    [SerializeField] private Image craftingRecipeImage3Parent;
+    
     private void Awake()
     {
         NextRecipe();
@@ -39,7 +43,7 @@ public class CauldronScript : MonoBehaviour
         {
             craftingRecipeImage1.sprite = _craftingRecipeSO.IngredientsSOList[0].ingredientIcon;
             craftingRecipeImage2.sprite = _craftingRecipeSO.IngredientsSOList[1].ingredientIcon;
-            craftingRecipeImage3.gameObject.SetActive(false);
+            craftingRecipeImage3Parent.gameObject.SetActive(false);
         }
         else if (_craftingRecipeSO.IngredientsSOList.Count() == 3)
         {

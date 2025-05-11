@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IngredientID: 7
   ingredientName: P7
-  ingredientType: 1
+  ingredientType: 2
   ingredientIcon: {fileID: 21300000, guid: 006532183c70101468e82092133770e5, type: 3}
   ingredientPrefab: {fileID: 0}
   isFarmable: 0
