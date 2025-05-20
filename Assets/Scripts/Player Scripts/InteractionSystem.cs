@@ -14,7 +14,7 @@ public class InteractionSystem : MonoBehaviour
     [Header("Keybindings")]
     [SerializeField] private KeyCode firstInteractionKey = KeyCode.E;
     [SerializeField] private KeyCode secondInteractionKey = KeyCode.Mouse0;
-    [SerializeField] private KeyCode thirdInteractionKey = KeyCode.Mouse2;
+    [SerializeField] private KeyCode thirdInteractionKey = KeyCode.Mouse1;
     [SerializeField] private KeyCode throwKey = KeyCode.Mouse0;
     [SerializeField] private KeyCode rotationKey = KeyCode.R;
     [SerializeField] private KeyCode closeUIKey = KeyCode.Escape;
@@ -27,6 +27,7 @@ public class InteractionSystem : MonoBehaviour
     [SerializeField] private bool canDrop = true;
     [SerializeField] private int layerNumber;
 
+
     private void Start()
     {
         playerCam = FindAnyObjectByType<PlayerCam>();
@@ -34,6 +35,12 @@ public class InteractionSystem : MonoBehaviour
 
     private void Update()
     {
+        
+        bool firstKeyPressed = Input.GetKeyDown(firstInteractionKey);
+        bool secondKeyPressed = Input.GetKeyDown(secondInteractionKey);
+        bool thirdKeyPressed = Input.GetKeyDown(thirdInteractionKey);
+
+        
         if (playerCam.isUIOpened && Input.GetKeyDown(closeUIKey))
         {
             storeUI.SetActive(false);
@@ -44,30 +51,38 @@ public class InteractionSystem : MonoBehaviour
             if (heldObj == null)
             {
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
+                if (Physics.Raycast(transform.position, transform.forward, out hit, pickUpRange))
                 {
-                    if (hit.transform.gameObject.CompareTag("canPickUp") && Input.GetKeyDown(firstInteractionKey))
+                    if (hit.transform.gameObject.CompareTag("canPickUp") && firstKeyPressed)
                     {
                         PickUpObject(hit.transform.gameObject);
                     }
-                    else if (hit.transform.gameObject.CompareTag("owlInteraction") && Input.GetKeyDown(firstInteractionKey))
+                    if (hit.transform.gameObject.CompareTag("owlInteraction") && firstKeyPressed)
                     {
                         storeUI.SetActive(true);
                         playerCam.isUIOpened = true;
                     }
-                    else if (hit.transform.TryGetComponent(out CauldronScript cauldronScript))
+                    if (hit.transform.CompareTag("Door") && firstKeyPressed)
                     {
-                        if (Input.GetKeyDown(firstInteractionKey))
+                        Door door = hit.transform.GetComponent<Door>();
+                        if (door != null)
+                        {
+                            door.ToggleDoor();
+                        }
+                    }
+                    if (hit.transform.TryGetComponent(out CauldronScript cauldronScript))
+                    {
+                        if (firstKeyPressed)
                         {
                             cauldronScript.Craft();
                         }
-                        if (Input.GetKeyDown(thirdInteractionKey))
+                        if (thirdKeyPressed)
                         {
                             Debug.Log("bb");
 
                             cauldronScript.NextRecipe();
                         }
-                        if (Input.GetKeyDown(secondInteractionKey)) //HOCAYASORULACAK
+                        else if (secondKeyPressed) //HOCAYASORULACAK
                         {
                             Debug.Log("aa");
                             cauldronScript.PreviousRecipe();
