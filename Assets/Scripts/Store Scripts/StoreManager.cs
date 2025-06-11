@@ -11,12 +11,14 @@ public class StoreManager : MonoBehaviour
     [Header("References")] 
     [SerializeField] private Transform contentPanel;
     [SerializeField] GameObject storeItemPrefab;
+    [SerializeField] MoneyManager moneyManager;
     
     [Header("Filter Buttons")]
     [SerializeField] private Button allButton;
     [SerializeField] private Button seedButton;
     [SerializeField] private Button cropButton;
     [SerializeField] private Button miscButton;
+    [SerializeField] private JarScript[] jars;
     
     public List<IngredientsSO> allIngredients;
     
@@ -32,6 +34,8 @@ public class StoreManager : MonoBehaviour
         seedButton.onClick.AddListener(() => FilterStore("Seed", seedButton));
         cropButton.onClick.AddListener(() => FilterStore("Crop", cropButton));
         miscButton.onClick.AddListener(() => FilterStore("Miscellaneous", miscButton));
+
+        jars = FindObjectsByType<JarScript>(0);
         
         UpdateButtonState(allButton);
     }
@@ -61,8 +65,15 @@ public class StoreManager : MonoBehaviour
 
     private void BuyIngredient(IngredientsSO ingredient)
     {
-        Instantiate(ingredient.ingredientPrefab);
-        Debug.Log($"Purchased: {ingredient.ingredientName} for ${ingredient.ingredientPrice}");
+        if (moneyManager.currentMoney > ingredient.ingredientPrice)
+        {
+            moneyManager.SubtractMoney(ingredient.ingredientPrice);
+            Debug.Log($"Purchased: {ingredient.ingredientName} for ${ingredient.ingredientPrice}");
+        }
+        else
+        {
+            Debug.Log("Not enough money");
+        }
     }
 
     private void ClearStore()

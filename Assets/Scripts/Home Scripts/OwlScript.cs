@@ -31,6 +31,8 @@ public class OwlScript : MonoBehaviour
             animator.SetBool("isFlying", true);
             gameObject.transform.rotation = Quaternion.Euler(0, 90, 0);
             isFlying = true;
+            
+            ToggleAllWindowsSimple();
         }
         
         if (Input.GetKeyDown(KeyCode.G))
@@ -68,6 +70,20 @@ public class OwlScript : MonoBehaviour
                 isFlying = false;
                 currentWaypointIndex = 1;
                 direction = 1;
+                ToggleAllWindowsSimple();
+            }
+        }
+    }
+    
+    private void ToggleAllWindowsSimple()
+    {
+        WindowScript[] allWindowScripts = FindObjectsByType<WindowScript>(0);
+        
+        foreach (WindowScript windowScript in allWindowScripts)
+        {
+            if (windowScript != null)
+            {
+                windowScript.ToggleWindow();
             }
         }
     }

@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+
 public class CauldronScript : MonoBehaviour
 {
     [SerializeField] private List<RecipeSO> craftingRecipeSOList;
@@ -19,7 +20,11 @@ public class CauldronScript : MonoBehaviour
     [SerializeField] private Image craftingRecipeImage1Parent;
     [SerializeField] private Image craftingRecipeImage2Parent;
     [SerializeField] private Image craftingRecipeImage3Parent;
-    
+
+    [Header("Cauldron Color")]
+    [SerializeField] private Renderer cauldronRenderer;
+    [SerializeField] private string shaderColorProperty = "_BaseColor";
+
     private void Awake()
     {
         NextRecipe();
@@ -27,63 +32,88 @@ public class CauldronScript : MonoBehaviour
 
     public void NextRecipe()
     {
-        if (_craftingRecipeSO == null)
+        if (craftingRecipeSOList == null || craftingRecipeSOList.Count == 0)
         {
-            _craftingRecipeSO = craftingRecipeSOList[0];
+            Debug.LogWarning("No crafting recipes available!");
+            return;
+        }
+
+        if (craftingRecipeListIndex > craftingRecipeSOList.Count - 1)
+        {
+            craftingRecipeListIndex = 0;
         }
         else
         {
-            craftingRecipeListIndex = craftingRecipeSOList.IndexOf(_craftingRecipeSO);
             craftingRecipeListIndex = (craftingRecipeListIndex + 1) % craftingRecipeSOList.Count;
             _craftingRecipeSO = craftingRecipeSOList[craftingRecipeListIndex];
         }
 
-        recipeNameText.text = _craftingRecipeSO.name;
-        if (_craftingRecipeSO.IngredientsSOList.Count() == 2)
-        {
-            craftingRecipeImage1.sprite = _craftingRecipeSO.IngredientsSOList[0].ingredientIcon;
-            craftingRecipeImage2.sprite = _craftingRecipeSO.IngredientsSOList[1].ingredientIcon;
-            craftingRecipeImage3Parent.gameObject.SetActive(false);
-        }
-        else if (_craftingRecipeSO.IngredientsSOList.Count() == 3)
-        {
-            craftingRecipeImage3.gameObject.SetActive(true);
-            craftingRecipeImage1.sprite = _craftingRecipeSO.IngredientsSOList[0].ingredientIcon;
-            craftingRecipeImage2.sprite = _craftingRecipeSO.IngredientsSOList[1].ingredientIcon;
-            craftingRecipeImage3.sprite = _craftingRecipeSO.IngredientsSOList[2].ingredientIcon;
-        }
+        UpdateRecipeDisplay();
     }
 
     public void PreviousRecipe()
     {
-        craftingRecipeListIndex = craftingRecipeSOList.IndexOf(_craftingRecipeSO);
-        craftingRecipeListIndex = (craftingRecipeListIndex - 1 + craftingRecipeSOList.Count) % craftingRecipeSOList.Count;
-        _craftingRecipeSO = craftingRecipeSOList[craftingRecipeListIndex];
-        recipeNameText.text = _craftingRecipeSO.name;
-        if (_craftingRecipeSO.IngredientsSOList.Count() == 2)
+        if (craftingRecipeSOList == null || craftingRecipeSOList.Count == 0)
         {
-            craftingRecipeImage1.sprite = _craftingRecipeSO.IngredientsSOList[0].ingredientIcon;
-            craftingRecipeImage2.sprite = _craftingRecipeSO.IngredientsSOList[1].ingredientIcon;
-            craftingRecipeImage3.gameObject.SetActive(false);
+            Debug.LogWarning("No crafting recipes available!");
+            return;
         }
-        else if (_craftingRecipeSO.IngredientsSOList.Count() == 3)
+        if (craftingRecipeListIndex < 0)
         {
-            craftingRecipeImage3.gameObject.SetActive(true);
+            craftingRecipeListIndex = craftingRecipeSOList.Count - 1;
+        }
+        else
+        {
+            craftingRecipeListIndex = (craftingRecipeListIndex - 1 + craftingRecipeSOList.Count) % craftingRecipeSOList.Count;
+            _craftingRecipeSO = craftingRecipeSOList[craftingRecipeListIndex];
+        }
+
+        UpdateRecipeDisplay();
+    }
+
+    private void UpdateRecipeDisplay()
+    {
+        if (_craftingRecipeSO == null) return;
+
+        recipeNameText.text = _craftingRecipeSO.name;
+
+        int ingredientCount = _craftingRecipeSO.IngredientsSOList.Count;
+
+        craftingRecipeImage1Parent.gameObject.SetActive(false);
+        craftingRecipeImage2Parent.gameObject.SetActive(false);
+        craftingRecipeImage3Parent.gameObject.SetActive(false);
+
+        if (ingredientCount >= 1)
+        {
+            craftingRecipeImage1Parent.gameObject.SetActive(true);
             craftingRecipeImage1.sprite = _craftingRecipeSO.IngredientsSOList[0].ingredientIcon;
+        }
+
+        if (ingredientCount >= 2)
+        {
+            craftingRecipeImage2Parent.gameObject.SetActive(true);
             craftingRecipeImage2.sprite = _craftingRecipeSO.IngredientsSOList[1].ingredientIcon;
+        }
+
+        if (ingredientCount >= 3)
+        {
+            craftingRecipeImage3Parent.gameObject.SetActive(true);
             craftingRecipeImage3.sprite = _craftingRecipeSO.IngredientsSOList[2].ingredientIcon;
         }
     }
 
     public void Craft()
     {
-        Collider[] colliderArray = Physics.OverlapBox(transform.position + placeItemsAreaBoxCollider.center, 
-            placeItemsAreaBoxCollider.size, 
+        Collider[] colliderArray = Physics.OverlapBox(
+            transform.position + placeItemsAreaBoxCollider.center,
+            placeItemsAreaBoxCollider.size * 0.5f,
             placeItemsAreaBoxCollider.transform.rotation);
 
         List<IngredientsSO> inputItemList = new List<IngredientsSO>(_craftingRecipeSO.IngredientsSOList);
         List<GameObject> consumeItemGameObjectList = new List<GameObject>();
-        
+
+        List<Color> ingredientColors = new List<Color>();
+
         foreach (Collider collider in colliderArray)
         {
             if (collider.TryGetComponent(out IngredientSOHolder ingredientSOHolder))
@@ -92,11 +122,12 @@ public class CauldronScript : MonoBehaviour
                 {
                     inputItemList.Remove(ingredientSOHolder.ingredientSO);
                     consumeItemGameObjectList.Add(collider.gameObject);
+                    ingredientColors.Add(ingredientSOHolder.ingredientSO.ingredientColor);
                 }
             }
         }
 
-        if (inputItemList.Count == 0 )
+        if (inputItemList.Count == 0)
         {
             Instantiate(_craftingRecipeSO.OutputPotionSO.PotionPrefab, itemSpawnPoint.position, itemSpawnPoint.rotation);
 
@@ -104,6 +135,28 @@ public class CauldronScript : MonoBehaviour
             {
                 Destroy(consumeItemGameObject);
             }
+
+            SetCauldronColor(_craftingRecipeSO.resultColor);
+        }
+        else
+        {
+            if (ingredientColors.Count > 0)
+            {
+                Color averageColor = Color.black;
+                foreach (Color col in ingredientColors)
+                    averageColor += col;
+
+                averageColor /= ingredientColors.Count;
+                SetCauldronColor(averageColor);
+            }
+        }
+    }
+
+    private void SetCauldronColor(Color color)
+    {
+        if (cauldronRenderer != null)
+        {
+            cauldronRenderer.material.SetColor(shaderColorProperty, color);
         }
     }
 }

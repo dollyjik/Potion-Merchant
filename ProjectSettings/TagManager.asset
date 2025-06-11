@@ -8,6 +8,8 @@ TagManager:
   - owlInteraction
   - Cauldron
   - Door
+  - Jar
+  - Plant
   layers:
   - Default
   - TransparentFX

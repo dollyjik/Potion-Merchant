@@ -5,11 +5,12 @@ using UnityEngine.UI;
 public class IngredientsSO : ScriptableObject
 {
     [Header("Properties")]
-    public int IngredientID;
+    public int ingredientID;
     public string ingredientName;
     public IngredientType ingredientType;
     public Sprite ingredientIcon;
 	public GameObject ingredientPrefab;
+    public Color ingredientColor;
     
     [Header("Bool's")]
     public bool isFarmable; //Is it obtainable via Farming

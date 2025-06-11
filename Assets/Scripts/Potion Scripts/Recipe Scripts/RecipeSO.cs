@@ -8,4 +8,5 @@ public class RecipeSO : ScriptableObject
     public Sprite Sprite;
     public List<IngredientsSO> IngredientsSOList;
     public PotionSO OutputPotionSO;
+    public Color resultColor;
 }

@@ -15,7 +15,10 @@ public class DayManager : MonoBehaviour
     [Range(0, 24)] public float timeOfDay;
     private const float TimeOfDaySpeed = 0.01675f;
     public int currentDay;
-    
+    [SerializeField] private Material skyboxMaterial;
+    [SerializeField] private Cubemap skyboxA;
+    [SerializeField] private Cubemap skyboxB;
+
 
     private void Update()
     {
@@ -64,6 +67,16 @@ public class DayManager : MonoBehaviour
             directionalLight.color = preset.ambientColor.Evaluate(timePercent);
             directionalLight.transform.localRotation = Quaternion.Euler(new Vector3((timePercent * 360) - 90, 170, 0));
         }
+        
+        float blend = Mathf.Clamp01(Mathf.Sin(timePercent * Mathf.PI));
+
+        skyboxMaterial.SetTexture("_SkyboxA", skyboxA);
+        skyboxMaterial.SetTexture("_SkyboxB", skyboxB);
+        skyboxMaterial.SetFloat("_Blend", blend);
+
+        RenderSettings.skybox = skyboxMaterial;
+
+        DynamicGI.UpdateEnvironment();
     }
     
     private void OnValidate()

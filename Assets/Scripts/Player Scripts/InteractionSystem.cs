@@ -10,12 +10,15 @@ public class InteractionSystem : MonoBehaviour
     [SerializeField] private GameObject heldObj;
     [SerializeField] private Rigidbody heldObjRb;
     [SerializeField] private GameObject storeUI;
+    [SerializeField] private MoneyManager moneyManager;
     
     [Header("Keybindings")]
     [SerializeField] private KeyCode firstInteractionKey = KeyCode.E;
     [SerializeField] private KeyCode secondInteractionKey = KeyCode.Mouse0;
     [SerializeField] private KeyCode thirdInteractionKey = KeyCode.Mouse1;
-    [SerializeField] private KeyCode throwKey = KeyCode.Mouse0;
+    [SerializeField] private KeyCode fourthInteractionKey = KeyCode.F;
+    [SerializeField] private KeyCode denemeInteractionKey = KeyCode.Z;
+    [SerializeField] private KeyCode moneyHackKey = KeyCode.M;
     [SerializeField] private KeyCode rotationKey = KeyCode.R;
     [SerializeField] private KeyCode closeUIKey = KeyCode.Escape;
 
@@ -31,38 +34,43 @@ public class InteractionSystem : MonoBehaviour
     private void Start()
     {
         playerCam = FindAnyObjectByType<PlayerCam>();
+        moneyManager = FindAnyObjectByType<MoneyManager>( 0);
     }
 
     private void Update()
     {
-        
-        bool firstKeyPressed = Input.GetKeyDown(firstInteractionKey);
-        bool secondKeyPressed = Input.GetKeyDown(secondInteractionKey);
-        bool thirdKeyPressed = Input.GetKeyDown(thirdInteractionKey);
+        if (heldObj != null)
+        {
+            MoveObject();
+            RotateObject();
+        }
 
-        
         if (playerCam.isUIOpened && Input.GetKeyDown(closeUIKey))
         {
             storeUI.SetActive(false);
             playerCam.isUIOpened = false;
         }
-        if (Input.GetKeyDown(firstInteractionKey) || Input.GetKeyDown(secondInteractionKey))
+
+        if (Input.GetKeyDown(firstInteractionKey))
         {
             if (heldObj == null)
             {
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position, transform.forward, out hit, pickUpRange))
                 {
-                    if (hit.transform.gameObject.CompareTag("canPickUp") && firstKeyPressed)
+                    if (hit.transform.gameObject.CompareTag("Cauldron"))
                     {
-                        PickUpObject(hit.transform.gameObject);
+                        CauldronScript cauldronScript = hit.transform.GetComponent<CauldronScript>();
+                        cauldronScript.Craft();
                     }
-                    if (hit.transform.gameObject.CompareTag("owlInteraction") && firstKeyPressed)
+
+                    if (hit.transform.gameObject.CompareTag("owlInteraction"))
                     {
                         storeUI.SetActive(true);
                         playerCam.isUIOpened = true;
                     }
-                    if (hit.transform.CompareTag("Door") && firstKeyPressed)
+
+                    if (hit.transform.gameObject.CompareTag("Door"))
                     {
                         Door door = hit.transform.GetComponent<Door>();
                         if (door != null)
@@ -70,43 +78,109 @@ public class InteractionSystem : MonoBehaviour
                             door.ToggleDoor();
                         }
                     }
-                    if (hit.transform.TryGetComponent(out CauldronScript cauldronScript))
-                    {
-                        if (firstKeyPressed)
-                        {
-                            cauldronScript.Craft();
-                        }
-                        if (thirdKeyPressed)
-                        {
-                            Debug.Log("bb");
 
-                            cauldronScript.NextRecipe();
-                        }
-                        else if (secondKeyPressed) //HOCAYASORULACAK
+                    if (hit.transform.gameObject.CompareTag("Jar"))
+                    {
+                        JarScript jarScript = hit.transform.GetComponent<JarScript>();
+                        GameObject jarObject = jarScript.SpawnIngredient(holdPos);
+                        PickUpObject(jarObject);
+                    }
+
+                    if (hit.transform.gameObject.CompareTag("Plant"))
+                    {
+                        PlantStateMachine plantStateMachine = hit.transform.GetComponent<PlantStateMachine>();
+                        JarScript plantJar = plantStateMachine.PlantJar.GetComponent<JarScript>();
+                        if (plantStateMachine.currentState == plantStateMachine.fruitState)
                         {
-                            Debug.Log("aa");
-                            cauldronScript.PreviousRecipe();
+                            if (plantStateMachine.grownState != null)
+                            {
+                                plantStateMachine.ChangeState(plantStateMachine.grownState);
+                                plantJar.AddIngredient();
+                            }
+                            else if (plantStateMachine.grownState == null)
+                            {
+                                plantStateMachine.ChangeState(plantStateMachine.growingState);
+                                plantJar.AddIngredient();
+                            }
                         }
                     }
                 }
             }
-            else
+        }
+
+        if (Input.GetKeyDown(denemeInteractionKey))
+        {
+            if (heldObj == null)
             {
-                if(canDrop)
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.forward, out hit, pickUpRange))
+                {
+                    if (hit.transform.gameObject.CompareTag("Jar"))
+                    {
+                        JarScript jarScript = hit.transform.GetComponent<JarScript>();
+                        jarScript.AddIngredient();
+                    }
+                }
+            }
+        }
+        
+        if (Input.GetKeyDown(secondInteractionKey))
+        {
+            if (heldObj == null)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.forward, out hit, pickUpRange))
+                {
+                    if (hit.transform.gameObject.CompareTag("Cauldron"))
+                    {
+                        CauldronScript cauldronScript = hit.transform.GetComponent<CauldronScript>();
+                        cauldronScript.NextRecipe();
+                    }
+                }
+            }
+        }
+
+        if (Input.GetKeyDown(moneyHackKey))
+        {
+            moneyManager.AddMoney();
+        }
+        
+        if (Input.GetKeyDown(thirdInteractionKey))
+        {
+            if (heldObj == null)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.forward, out hit, pickUpRange))
+                {
+                    if (hit.transform.gameObject.CompareTag("Cauldron"))
+                    {
+                        CauldronScript cauldronScript = hit.transform.GetComponent<CauldronScript>();
+                        cauldronScript.PreviousRecipe();
+                    }
+                }
+            }
+        }
+        
+        if (Input.GetKeyDown(fourthInteractionKey))
+        {
+            if (heldObj == null)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.forward, out hit, pickUpRange))
+                {
+                    if (hit.transform.gameObject.CompareTag("canPickUp"))
+                    {
+                        PickUpObject(hit.transform.gameObject);
+                    }
+                }
+            }
+            else if (heldObj != null)
+            {
+                if (canDrop == true)
                 {
                     StopClipping();
                     DropObject();
                 }
-            }
-        }
-        if (heldObj != null)
-        {
-            MoveObject();
-            RotateObject();
-            if (Input.GetKeyDown(throwKey) && canDrop == true)
-            {
-                StopClipping();
-                ThrowObject();
             }
         }
     }

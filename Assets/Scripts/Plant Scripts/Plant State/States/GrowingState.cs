@@ -32,7 +32,8 @@ public class GrowingState : PlantBaseState
     public override void ExitState(PlantStateMachine stateMachine)
     {
         onGrowingStateFinished.Raise(this, stateMachine.currentState);
-
+        _timeElapsed = 0;
+        transform.localScale = startScale;
         this.gameObject.SetActive(false);
     }
 }

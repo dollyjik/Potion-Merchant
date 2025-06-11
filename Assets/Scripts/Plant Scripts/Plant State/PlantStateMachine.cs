@@ -8,6 +8,7 @@ public class PlantStateMachine : MonoBehaviour
     public FruitState fruitState;
     public GrownState grownState;
     public PlantBaseState currentState;
+    public GameObject PlantJar;
     
     public void Start()
     {
