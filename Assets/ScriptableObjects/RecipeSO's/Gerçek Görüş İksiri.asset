@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3252302b73edcde4fa77f777a94167b7, type: 3}
+  m_Name: "Ger\xE7ek G\xF6r\xFC\u015F \u0130ksiri"
+  m_EditorClassIdentifier: 
+  RecipeID: 8
+  Sprite: {fileID: 0}
+  IngredientsSOList:
+  - {fileID: 11400000, guid: 1c2538d798fd9ff499eaeae24f79bec1, type: 2}
+  - {fileID: 11400000, guid: 467e797120acbf1429bdf30a96da2c78, type: 2}
+  - {fileID: 11400000, guid: 106f89b8bbb153042bf155d638138dfc, type: 2}
+  OutputPotionSO: {fileID: 11400000, guid: 31eec33d9aacf26469144a7cabe5393d, type: 2}
+  resultColor: {r: 0, g: 0, b: 0, a: 0}

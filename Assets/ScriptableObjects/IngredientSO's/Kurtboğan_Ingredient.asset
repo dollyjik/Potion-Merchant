@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d8e92acffb043541b339682780a6fae, type: 3}
+  m_Name: "Kurtbo\u011Fan_Ingredient"
+  m_EditorClassIdentifier: 
+  ingredientID: 7
+  ingredientName: "Kurtbo\u011Fan"
+  ingredientType: 1
+  ingredientIcon: {fileID: 21300000, guid: 134a0a2f43cb4524f88869d7edb6bc5c, type: 3}
+  ingredientPrefab: {fileID: 5833421421112409640, guid: 4885fc09eacaf1142ae59a6b381b6846, type: 3}
+  ingredientColor: {r: 0.9056604, g: 0.6782389, b: 0.33748665, a: 1}
+  isFarmable: 1
+  isPurchasable: 1
+  ingredientPrice: 1212

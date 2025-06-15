@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 385552613680132844}
   - component: {fileID: 4818786067241078822}
   - component: {fileID: 7026590427017220045}
+  - component: {fileID: -107916608097495364}
   m_Layer: 0
   m_Name: Solucan Otu
   m_TagString: canPickUp
@@ -136,3 +137,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-107916608097495364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7929793498935206661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76fc2f21b0b8867429c22b3cdf09b3e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientSO: {fileID: 11400000, guid: 1c2538d798fd9ff499eaeae24f79bec1, type: 2}

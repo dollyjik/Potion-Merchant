@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88545cf3356cca74188db215ab0af562, type: 3}
+  m_Name: "\xD6l\xFCms\xFCzl\xFCk \u0130ksiri"
+  m_EditorClassIdentifier: 
+  PotionID: 24
+  PotionName: "\xD6l\xFCms\xFCzl\xFCk \u0130ksiri"
+  PotionIcon: {fileID: 0}
+  PotionColor: {r: 0.7254902, g: 0.050980393, b: 0.078431375, a: 1}
+  PotionPrefab: {fileID: 6658066854625098280, guid: bd47086094665f8439126faea3061fb7, type: 3}

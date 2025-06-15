@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4034863331546004162}
   - component: {fileID: 3398310153501362392}
   - component: {fileID: 2488003693177507541}
+  - component: {fileID: -7833656630678612927}
   m_Layer: 0
   m_Name: "Yarasa Kula\u011F\u0131"
   m_TagString: canPickUp
@@ -136,3 +137,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.026146118, y: 0.027966969, z: 0.007428153}
   m_Center: {x: 0.00017499039, y: 0.0006279414, z: 0.0031156528}
+--- !u!114 &-7833656630678612927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865996731403660226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76fc2f21b0b8867429c22b3cdf09b3e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientSO: {fileID: 11400000, guid: 509cde12dca3c234a88931ed6d15c660, type: 2}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3308706622820453859}
   - component: {fileID: 5855862708940681712}
   - component: {fileID: 5896501005435983520}
+  - component: {fileID: -452183622900435628}
   m_Layer: 0
   m_Name: blood
   m_TagString: canPickUp
@@ -141,3 +142,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.66957104, y: 0.2048434, z: 0.9806208}
   m_Center: {x: -0.12197119, y: -0.019078061, z: 0.4904682}
+--- !u!114 &-452183622900435628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5845708272010298453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76fc2f21b0b8867429c22b3cdf09b3e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientSO: {fileID: 11400000, guid: 0577446c9eb4cd241abab98f14e80395, type: 2}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3460115069877597259}
   - component: {fileID: 8517376765572825872}
   - component: {fileID: 311429360397333111}
+  - component: {fileID: 2393649657777935769}
   m_Layer: 0
   m_Name: "G\xFCzelavrat Otu"
   m_TagString: canPickUp
@@ -136,3 +137,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2393649657777935769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2493392810020254115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76fc2f21b0b8867429c22b3cdf09b3e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientSO: {fileID: 11400000, guid: 397d5a7c4fe6a4e428b54798a554d071, type: 2}

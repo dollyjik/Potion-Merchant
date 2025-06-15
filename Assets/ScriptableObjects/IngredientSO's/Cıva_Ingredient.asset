@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8e92acffb043541b339682780a6fae, type: 3}
   m_Name: "C\u0131va_Ingredient"
   m_EditorClassIdentifier: 
-  IngredientID: 13
+  ingredientID: 2
   ingredientName: Civa
   ingredientType: 2
   ingredientIcon: {fileID: 21300000, guid: 74338773c7bc4a24abd74e86c5c51a03, type: 3}

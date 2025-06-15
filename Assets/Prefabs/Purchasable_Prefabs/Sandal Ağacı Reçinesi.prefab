@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 913713931154619596}
   - component: {fileID: 3916003879113491885}
   - component: {fileID: 4936097601453175645}
+  - component: {fileID: -2275121351795845795}
   m_Layer: 0
   m_Name: "Sandal A\u011Fac\u0131 Re\xE7inesi"
   m_TagString: canPickUp
@@ -136,3 +137,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.019999998, z: 0.03845901}
   m_Center: {x: 0, y: 0, z: 0.0013778022}
+--- !u!114 &-2275121351795845795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873502716959743093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76fc2f21b0b8867429c22b3cdf09b3e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientSO: {fileID: 11400000, guid: 32d86bba99a5a27448714ad0ea0d3946, type: 2}

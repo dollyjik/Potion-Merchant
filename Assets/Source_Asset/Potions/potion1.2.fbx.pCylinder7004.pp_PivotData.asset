@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583688de1c5b4ce4e9435544090f390c, type: 3}
+  m_Name: potion1.2.fbx.pCylinder7004.pp_PivotData
+  m_EditorClassIdentifier: 
+  PivotDelta: {x: -0.00801324, y: -0.081257924, z: 0.004791278}
+  OriginalMesh: {fileID: -4925805486709722511, guid: 1aa41f0cc4fb7f349a2ef9f3efe786d2, type: 3}
+  ModifiedMesh: {fileID: 4300000, guid: 2bdbc685d42b3b24c9e5cfc2e8c3f630, type: 2}

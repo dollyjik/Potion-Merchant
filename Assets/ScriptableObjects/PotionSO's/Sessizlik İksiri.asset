@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88545cf3356cca74188db215ab0af562, type: 3}
+  m_Name: "Sessizlik \u0130ksiri"
+  m_EditorClassIdentifier: 
+  PotionID: 15
+  PotionName: "Sessizlik \u0130ksiri"
+  PotionIcon: {fileID: 0}
+  PotionColor: {r: 0.8784314, g: 0.8862745, b: 0.36078432, a: 1}
+  PotionPrefab: {fileID: 1532859490380594677, guid: c23c8597edfaa2b4492f48128c94d8fa, type: 3}

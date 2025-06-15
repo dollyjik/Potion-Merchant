@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8e92acffb043541b339682780a6fae, type: 3}
   m_Name: "YarasaKula\u011F\u0131_Ingredient"
   m_EditorClassIdentifier: 
-  IngredientID: 17
+  ingredientID: 19
   ingredientName: "Yarasa Kula\u011F\u0131"
   ingredientType: 2
   ingredientIcon: {fileID: 21300000, guid: 83e5479967f465646a9a9933f26f507a, type: 3}

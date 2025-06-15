@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8e92acffb043541b339682780a6fae, type: 3}
   m_Name: VampireBlood_Ingredient
   m_EditorClassIdentifier: 
-  IngredientID: 11
+  ingredientID: 18
   ingredientName: "Vampir Kan\u0131"
   ingredientType: 2
   ingredientIcon: {fileID: 21300000, guid: 2f2cf86486a5cd6498063bfb868a8511, type: 3}

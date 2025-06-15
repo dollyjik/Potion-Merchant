@@ -60,7 +60,9 @@ public class InteractionSystem : MonoBehaviour
                 {
                     if (hit.transform.gameObject.CompareTag("Cauldron"))
                     {
+                        Debug.Log("Cauldron Craft");
                         CauldronScript cauldronScript = hit.transform.GetComponent<CauldronScript>();
+                        Debug.Log(cauldronScript);
                         cauldronScript.Craft();
                     }
 
@@ -171,6 +173,12 @@ public class InteractionSystem : MonoBehaviour
                     if (hit.transform.gameObject.CompareTag("canPickUp"))
                     {
                         PickUpObject(hit.transform.gameObject);
+                    }
+
+                    if (hit.transform.gameObject.CompareTag("Cauldron"))
+                    {
+                        CauldronScript cauldronScript = hit.transform.GetComponent<CauldronScript>();
+                        cauldronScript.ClearCauldron();
                     }
                 }
             }

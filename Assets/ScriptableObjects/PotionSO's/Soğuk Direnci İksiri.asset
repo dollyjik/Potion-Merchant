@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88545cf3356cca74188db215ab0af562, type: 3}
+  m_Name: "So\u011Fuk Direnci \u0130ksiri"
+  m_EditorClassIdentifier: 
+  PotionID: 17
+  PotionName: "So\u011Fuk Direnci \u0130ksiri"
+  PotionIcon: {fileID: 0}
+  PotionColor: {r: 0.7647059, g: 0.011764706, b: 0.33333334, a: 1}
+  PotionPrefab: {fileID: 1246944653551101293, guid: cfaea8a799f65fa4eb4a11db833d3f60, type: 3}

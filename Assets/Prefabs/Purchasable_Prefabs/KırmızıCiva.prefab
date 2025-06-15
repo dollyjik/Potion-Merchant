@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8764214669188979205}
   - component: {fileID: 6414208251084703173}
   - component: {fileID: 6728951704195069623}
+  - component: {fileID: -5483047842877657398}
   m_Layer: 0
   m_Name: "K\u0131rm\u0131z\u0131Civa"
   m_TagString: canPickUp
@@ -139,3 +140,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-5483047842877657398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7391587837322170678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76fc2f21b0b8867429c22b3cdf09b3e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientSO: {fileID: 11400000, guid: 5c5290131e740e643bccad343e99b20b, type: 2}

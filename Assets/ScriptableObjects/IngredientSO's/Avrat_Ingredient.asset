@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8e92acffb043541b339682780a6fae, type: 3}
   m_Name: Avrat_Ingredient
   m_EditorClassIdentifier: 
-  IngredientID: 10
+  ingredientID: 1
   ingredientName: "G\xFCzelavrat Otu"
   ingredientType: 2
   ingredientIcon: {fileID: 21300000, guid: 71121a15205fa7b49ab4e9075af70cdf, type: 3}

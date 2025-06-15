@@ -69,6 +69,16 @@ public class StoreManager : MonoBehaviour
         {
             moneyManager.SubtractMoney(ingredient.ingredientPrice);
             Debug.Log($"Purchased: {ingredient.ingredientName} for ${ingredient.ingredientPrice}");
+
+            // Satın alınan ingredient, hangi jar'a aitse ona 1 adet ekle
+            foreach (var jar in jars)
+            {
+                if (jar != null && jar.GetComponent<IngredientSOHolder>().ingredientSO == ingredient)
+                {
+                    jar.AddIngredient();
+                    break; // eşleşen ilk jar'a ekledik, durabiliriz
+                }
+            }
         }
         else
         {

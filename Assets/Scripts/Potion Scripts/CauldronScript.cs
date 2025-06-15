@@ -24,10 +24,31 @@ public class CauldronScript : MonoBehaviour
     [Header("Cauldron Color")]
     [SerializeField] private Renderer cauldronRenderer;
     [SerializeField] private string shaderColorProperty = "_BaseColor";
+    [SerializeField] private Color defaultColor = Color.black;
 
-    private void Awake()
+    private List<IngredientsSO> currentIngredients = new List<IngredientsSO>();
+    private List<Color> currentIngredientColors = new List<Color>();
+
+    
+    private void Start()
     {
         NextRecipe();
+    }
+
+    public void OnIngredientEntered(Collider other)
+    {
+        if (other.TryGetComponent(out IngredientSOHolder ingredientSOHolder))
+        {
+            IngredientsSO ingredient = ingredientSOHolder.ingredientSO;
+
+            currentIngredients.Add(ingredient);
+            currentIngredientColors.Add(ingredient.ingredientColor);
+
+            UpdateCauldronColor();
+            Destroy(other.gameObject);
+
+            Debug.Log($"Kazanda yeni ingredient: {ingredient.name}");
+        }
     }
 
     public void NextRecipe()
@@ -44,7 +65,7 @@ public class CauldronScript : MonoBehaviour
         }
         else
         {
-            craftingRecipeListIndex = (craftingRecipeListIndex + 1) % craftingRecipeSOList.Count;
+            craftingRecipeListIndex++;
             _craftingRecipeSO = craftingRecipeSOList[craftingRecipeListIndex];
         }
 
@@ -104,52 +125,47 @@ public class CauldronScript : MonoBehaviour
 
     public void Craft()
     {
-        Collider[] colliderArray = Physics.OverlapBox(
-            transform.position + placeItemsAreaBoxCollider.center,
-            placeItemsAreaBoxCollider.size * 0.5f,
-            placeItemsAreaBoxCollider.transform.rotation);
+        if (_craftingRecipeSO == null) return;
 
-        List<IngredientsSO> inputItemList = new List<IngredientsSO>(_craftingRecipeSO.IngredientsSOList);
-        List<GameObject> consumeItemGameObjectList = new List<GameObject>();
-
-        List<Color> ingredientColors = new List<Color>();
-
-        foreach (Collider collider in colliderArray)
+        if (currentIngredients.Count != _craftingRecipeSO.IngredientsSOList.Count)
         {
-            if (collider.TryGetComponent(out IngredientSOHolder ingredientSOHolder))
-            {
-                if (inputItemList.Contains(ingredientSOHolder.ingredientSO))
-                {
-                    inputItemList.Remove(ingredientSOHolder.ingredientSO);
-                    consumeItemGameObjectList.Add(collider.gameObject);
-                    ingredientColors.Add(ingredientSOHolder.ingredientSO.ingredientColor);
-                }
-            }
+            Debug.LogWarning("Gerekli ingredient sayısı uyuşmuyor!");
+            return;
         }
 
-        if (inputItemList.Count == 0)
+        List<IngredientsSO> required = new List<IngredientsSO>(_craftingRecipeSO.IngredientsSOList);
+        List<IngredientsSO> given = new List<IngredientsSO>(currentIngredients);
+
+        bool matches = required.All(ing => given.Remove(ing)) && given.Count == 0;
+
+        if (matches)
         {
             Instantiate(_craftingRecipeSO.OutputPotionSO.PotionPrefab, itemSpawnPoint.position, itemSpawnPoint.rotation);
-
-            foreach (GameObject consumeItemGameObject in consumeItemGameObjectList)
-            {
-                Destroy(consumeItemGameObject);
-            }
-
-            SetCauldronColor(_craftingRecipeSO.resultColor);
+            Debug.Log("Craft başarılı! İksir üretildi.");
+            ClearCauldron();
         }
         else
         {
-            if (ingredientColors.Count > 0)
-            {
-                Color averageColor = Color.black;
-                foreach (Color col in ingredientColors)
-                    averageColor += col;
-
-                averageColor /= ingredientColors.Count;
-                SetCauldronColor(averageColor);
-            }
+            Debug.LogWarning("Yanlış ingredient kombinasyonu!");
         }
+    }
+
+    private void UpdateCauldronColor()
+    {
+        if (currentIngredientColors.Count == 0)
+        {
+            SetCauldronColor(defaultColor);
+            return;
+        }
+
+        Color averageColor = Color.black;
+        foreach (Color col in currentIngredientColors)
+        {
+            averageColor += col;
+        }
+
+        averageColor /= currentIngredientColors.Count;
+        SetCauldronColor(averageColor);
     }
 
     private void SetCauldronColor(Color color)
@@ -158,5 +174,18 @@ public class CauldronScript : MonoBehaviour
         {
             cauldronRenderer.material.SetColor(shaderColorProperty, color);
         }
+    }
+
+    public void ClearCauldron()
+    {
+        currentIngredients.Clear();
+        currentIngredientColors.Clear();
+        SetCauldronColor(defaultColor);
+        Debug.Log("Kazan temizlendi.");
+    }
+
+    public List<IngredientsSO> GetCurrentIngredients()
+    {
+        return new List<IngredientsSO>(currentIngredients);
     }
 }

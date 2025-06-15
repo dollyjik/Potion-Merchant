@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8e92acffb043541b339682780a6fae, type: 3}
   m_Name: Adamotu_Ingredient
   m_EditorClassIdentifier: 
-  IngredientID: 19
+  ingredientID: 0
   ingredientName: Adamotu
   ingredientType: 2
   ingredientIcon: {fileID: 21300000, guid: 13c37e70868bc3742901bfe63937832e, type: 3}
   ingredientPrefab: {fileID: 5223199633914298975, guid: 539b7212e7cf6d9488069742273c552c, type: 3}
   ingredientColor: {r: 0.4716981, g: 0.07342471, b: 0.1572718, a: 1}
-  isFarmable: 1
+  isFarmable: 0
   isPurchasable: 1
   ingredientPrice: 124214

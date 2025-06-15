@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8e92acffb043541b339682780a6fae, type: 3}
   m_Name: SolucanOtu_Ingredient
   m_EditorClassIdentifier: 
-  IngredientID: 16
+  ingredientID: 17
   ingredientName: Solucan Otu
   ingredientType: 2
   ingredientIcon: {fileID: 21300000, guid: e31b2e8f646c91b4a897407f2cc0b99c, type: 3}

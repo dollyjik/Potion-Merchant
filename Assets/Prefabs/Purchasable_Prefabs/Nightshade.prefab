@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7098140650145945271}
   - component: {fileID: 3483018133478695294}
   - component: {fileID: 1087934873922187386}
+  - component: {fileID: -6327396153728921933}
   m_Layer: 0
   m_Name: Nightshade
   m_TagString: canPickUp
@@ -136,3 +137,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.017408602, y: 0.018304486, z: 0.0031648362}
   m_Center: {x: 0.0009189374, y: 0, z: 0.0007670931}
+--- !u!114 &-6327396153728921933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8444267082069454748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76fc2f21b0b8867429c22b3cdf09b3e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientSO: {fileID: 11400000, guid: 7118c38572735274c9752943cc9bd131, type: 2}

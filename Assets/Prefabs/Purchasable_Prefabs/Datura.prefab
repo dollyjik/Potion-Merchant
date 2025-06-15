@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 74419360051800135}
   - component: {fileID: 6227733887970923516}
   - component: {fileID: 7368191381907083545}
+  - component: {fileID: -6040768889514979014}
   m_Layer: 0
   m_Name: Datura
   m_TagString: canPickUp
@@ -136,3 +137,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02156896, y: 0.020000722, z: 0.024211358}
   m_Center: {x: -0.0000022691677, y: 0.000001634006, z: 0.0023801345}
+--- !u!114 &-6040768889514979014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7021879609534015959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76fc2f21b0b8867429c22b3cdf09b3e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientSO: {fileID: 11400000, guid: 1053082aba5650a488e670ec1db4dcff, type: 2}
