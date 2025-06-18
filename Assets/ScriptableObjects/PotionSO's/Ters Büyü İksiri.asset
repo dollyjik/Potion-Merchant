@@ -16,4 +16,5 @@ MonoBehaviour:
   PotionName: "Ters B\xFCy\xFC \u0130ksiri"
   PotionIcon: {fileID: 0}
   PotionColor: {r: 0.7921569, g: 0.8, b: 0.4745098, a: 1}
+  PotionPrice: 300
   PotionPrefab: {fileID: 3913990207001844417, guid: f2915e7eeb7eeff4c80d3780f92dce8c, type: 3}

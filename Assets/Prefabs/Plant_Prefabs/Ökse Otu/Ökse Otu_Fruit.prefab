@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6560636530840621157}
   - component: {fileID: 4798908414815724924}
   - component: {fileID: 3859490053463994605}
-  - component: {fileID: -5862242018530996115}
   - component: {fileID: 8306877293402949408}
   m_Layer: 0
   m_Name: "\xD6kse Otu_Fruit"
@@ -88,28 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &-5862242018530996115
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 356043679720948940}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6099800089077584851, guid: 7af6552d3bb38f04aa1933f2ea0aeb7b, type: 3}
 --- !u!114 &8306877293402949408
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -27,11 +27,27 @@ public class PlayerController : MonoBehaviour
     protected Vector3 Velocity;
     
     
+    public static PlayerController Instance { get; private set; } // Singleton instance
+
+    // You can expose the Transform directly for easy access
+    public Transform PlayerTransform => transform;
+
     private void Awake()
     {
+        
         CharController = GetComponent<CharacterController>();
+        if (Instance == null)
+        {
+            Instance = this;
+            // Optional: If your player should persist across scenes, uncomment this
+            // DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject); // Destroy duplicate instances
+        }
     }
-
+    
     private void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);

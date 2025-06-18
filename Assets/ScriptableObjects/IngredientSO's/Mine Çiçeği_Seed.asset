@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d8e92acffb043541b339682780a6fae, type: 3}
+  m_Name: "Mine \xC7i\xE7e\u011Fi_Seed"
+  m_EditorClassIdentifier: 
+  ingredientID: 6
+  ingredientName: "Mine \xC7i\xE7e\u011Fi Tohumu"
+  ingredientType: 0
+  ingredientIcon: {fileID: 21300000, guid: a1d99e32b76a7a446b1a7729647e257c, type: 3}
+  ingredientPrefab: {fileID: 8451147842087304932, guid: e4f7b668785616c4ab36416a4b527372, type: 3}
+  ingredientColor: {r: 0.03208439, g: 0.90804017, b: 0.9716981, a: 1}
+  seedData: {fileID: 11400000, guid: 2e4f98669fe624846a0002a50ea11a4e, type: 2}
+  isFarmable: 0
+  isPurchasable: 1
+  ingredientPrice: 2200

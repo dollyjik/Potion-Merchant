@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 4228078769447479883}
   - component: {fileID: 5186315736852543351}
   - component: {fileID: 7447381511659298644}
-  - component: {fileID: 829848045258763824}
+  - component: {fileID: -9015794989150090421}
+  - component: {fileID: 690764367559584596}
   m_Layer: 0
   m_Name: Gonca_Plant
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,7 +51,10 @@ MonoBehaviour:
   dayManager: {fileID: 0}
   plantDay: 0
   plantTime: 0
+  plantSound: {fileID: 8300000, guid: 86fa6667c3825ce4f807cbf83b34ed9a, type: 3}
+  audioSource: {fileID: 0}
   stateMachine: {fileID: 0}
+  jars: []
 --- !u!114 &7447381511659298644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,8 +72,22 @@ MonoBehaviour:
   fruitState: {fileID: 9148472344595216257}
   grownState: {fileID: 0}
   currentState: {fileID: 0}
---- !u!65 &829848045258763824
-BoxCollider:
+  jars: []
+--- !u!114 &-9015794989150090421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3825708827838533217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76fc2f21b0b8867429c22b3cdf09b3e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientSO: {fileID: 11400000, guid: 1bd0ab89402fe27438137ca587c8a5d4, type: 2}
+--- !u!136 &690764367559584596
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -86,9 +104,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.6056709, y: 3.8108053, z: 1.6690619}
-  m_Center: {x: 0.066841125, y: 1.8487196, z: -0.054437757}
+  serializedVersion: 2
+  m_Radius: 0.6821438
+  m_Height: 4.09048
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.5452399, z: -0.007655263}
 --- !u!1 &7585057196463406469
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +273,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P6_Sapling
       objectReference: {fileID: 0}
+    - target: {fileID: 4245692441950480424, guid: a0ec3c628c9419a478f62149b7a0e251, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1718835136055486782, guid: a0ec3c628c9419a478f62149b7a0e251, type: 3}
     m_RemovedGameObjects: []
@@ -326,6 +350,10 @@ PrefabInstance:
     - target: {fileID: 3016663320396718321, guid: 2353944bc3528a44986a48628ce32a45, type: 3}
       propertyPath: m_Name
       value: P6_Growing
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016663320396718321, guid: 2353944bc3528a44986a48628ce32a45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7119286250300693977, guid: 2353944bc3528a44986a48628ce32a45, type: 3}

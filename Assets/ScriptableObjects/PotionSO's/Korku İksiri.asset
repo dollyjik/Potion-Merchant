@@ -16,4 +16,5 @@ MonoBehaviour:
   PotionName: "Korku \u0130ksiri"
   PotionIcon: {fileID: 0}
   PotionColor: {r: 0.5647059, g: 0.2901961, b: 0.42745098, a: 1}
+  PotionPrice: 450
   PotionPrefab: {fileID: 802595384103485990, guid: b27b096c4d5707948b977d9eae946b39, type: 3}

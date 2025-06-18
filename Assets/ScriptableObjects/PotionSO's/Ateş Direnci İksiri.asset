@@ -16,4 +16,5 @@ MonoBehaviour:
   PotionName: "Ate\u015F Direnci \u0130ksiri"
   PotionIcon: {fileID: 0}
   PotionColor: {r: 0.46666667, g: 0.8627451, b: 0.1764706, a: 1}
+  PotionPrice: 240
   PotionPrefab: {fileID: 4752390272906371895, guid: 9880b673c9796c64eb047fccbc08b66b, type: 3}

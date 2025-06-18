@@ -21,6 +21,14 @@ public class CauldronScript : MonoBehaviour
     [SerializeField] private Image craftingRecipeImage2Parent;
     [SerializeField] private Image craftingRecipeImage3Parent;
 
+    [SerializeField] private GameObject smokeEffect;
+    [SerializeField] private AudioClip brewSound;
+    [SerializeField] private AudioClip failSound;
+    [SerializeField] private AudioClip boilSound;
+    [SerializeField] private AudioClip splashSound;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource owlAudioSource;
+    
     [Header("Cauldron Color")]
     [SerializeField] private Renderer cauldronRenderer;
     [SerializeField] private string shaderColorProperty = "_BaseColor";
@@ -32,13 +40,19 @@ public class CauldronScript : MonoBehaviour
     
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         NextRecipe();
+        audioSource.clip = boilSound;
+        audioSource.volume = 0.010f;
+        audioSource.loop = true;
+        audioSource.Play();
     }
 
     public void OnIngredientEntered(Collider other)
     {
         if (other.TryGetComponent(out IngredientSOHolder ingredientSOHolder))
         {
+            audioSource.PlayOneShot(splashSound, 7f);
             IngredientsSO ingredient = ingredientSOHolder.ingredientSO;
 
             currentIngredients.Add(ingredient);
@@ -141,11 +155,19 @@ public class CauldronScript : MonoBehaviour
         if (matches)
         {
             Instantiate(_craftingRecipeSO.OutputPotionSO.PotionPrefab, itemSpawnPoint.position, itemSpawnPoint.rotation);
+            Instantiate(smokeEffect, itemSpawnPoint.position, Quaternion.identity);
+            audioSource.loop = false;
+            audioSource.PlayOneShot(brewSound, 7);
+            audioSource.loop = true;
+            audioSource.volume = 0.010f;
+            audioSource.clip = boilSound;
+            audioSource.Play();
             Debug.Log("Craft başarılı! İksir üretildi.");
             ClearCauldron();
         }
         else
         {
+            owlAudioSource.PlayOneShot(failSound, .25f);
             Debug.LogWarning("Yanlış ingredient kombinasyonu!");
         }
     }

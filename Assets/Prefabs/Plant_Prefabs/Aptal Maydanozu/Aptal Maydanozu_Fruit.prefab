@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6647733338530156137}
   - component: {fileID: 1949653474701090430}
   - component: {fileID: 4417712469851107347}
-  - component: {fileID: -1836726655458626442}
   - component: {fileID: 4001264962277477473}
   m_Layer: 0
   m_Name: Aptal Maydanozu_Fruit
@@ -88,28 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &-1836726655458626442
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4911868078149308377}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8749754034506162496, guid: ead2348966432fa438ea696bf9530569, type: 3}
 --- !u!114 &4001264962277477473
 MonoBehaviour:
   m_ObjectHideFlags: 0

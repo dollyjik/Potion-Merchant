@@ -15,5 +15,6 @@ MonoBehaviour:
   PotionID: 0
   PotionName: "Alev V\xFCcudu \u0130ksiri"
   PotionIcon: {fileID: 0}
-  PotionColor: {r: 0.60784316, g: 0.30588236, b: 0.101960786, a: 0}
-  PotionPrefab: {fileID: 4657512462896089750, guid: 495c8c7ea1d9496478eb053d3b9fc1d6, type: 3}
+  PotionColor: {r: 0.60784316, g: 0.30588236, b: 0.101960786, a: 1}
+  PotionPrice: 700
+  PotionPrefab: {fileID: 1083133864160875681, guid: 495c8c7ea1d9496478eb053d3b9fc1d6, type: 3}

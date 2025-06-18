@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac220dab2d9246e40a988402b9007d81, type: 3}
+  m_Name: "Gizlilik \u0130ksiri Story"
+  m_EditorClassIdentifier: 
+  storyLines:
+  - "Kimsenin beni duymamas\u0131 gerek."
+  - "G\xF6lge gibi s\xFCz\xFClmek istiyorum."
+  wantedPotion: {fileID: 11400000, guid: aaeaa02317f92d142b5e1c2921ac8603, type: 2}

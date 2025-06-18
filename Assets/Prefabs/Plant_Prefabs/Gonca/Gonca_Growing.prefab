@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 732505094287198923}
   - component: {fileID: 6233923093458751439}
   - component: {fileID: 1137654754014781592}
-  - component: {fileID: 7119286250300693977}
   - component: {fileID: 4629918742298073020}
   m_Layer: 0
   m_Name: Gonca_Growing
@@ -88,28 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7119286250300693977
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3016663320396718321}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 469245201760230069, guid: 9149afe5f4178e64bbc87933d0a345f3, type: 3}
 --- !u!114 &4629918742298073020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b7c5e404e9dc104eb9995c583556f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  growDuration: 10
+  growDuration: 30
   startScale: {x: 800, y: 800, z: 800}
   finishScale: {x: 800, y: 800, z: 800}
   onGrowingStateFinished: {fileID: 11400000, guid: deaa7facce00e774392aec1644c770a8, type: 2}

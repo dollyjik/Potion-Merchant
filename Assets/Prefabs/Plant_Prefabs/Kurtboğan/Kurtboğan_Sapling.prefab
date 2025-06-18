@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6518605996165408165}
   - component: {fileID: 1236068256068138062}
   - component: {fileID: 5108822110473403728}
-  - component: {fileID: 8267546705466530127}
   - component: {fileID: 7027163445306301998}
   m_Layer: 0
   m_Name: "Kurtbo\u011Fan_Sapling"
@@ -88,28 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8267546705466530127
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4751323653788376930}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7095231422606553871, guid: 9d6fde848276e4f4d9e23c7901642454, type: 3}
 --- !u!114 &7027163445306301998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f057bd7b76c7bcf47b99e23458fd29f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  growDuration: 10
+  growDuration: 30
   startScale: {x: 7.5, y: 7.5, z: 7.5}
   finishScale: {x: 11, y: 11, z: 11}
   onSaplingStateFinished: {fileID: 11400000, guid: 2aaad4a146dd29e459179763300ec71f, type: 2}

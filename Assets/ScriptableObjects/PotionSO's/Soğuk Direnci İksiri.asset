@@ -16,4 +16,5 @@ MonoBehaviour:
   PotionName: "So\u011Fuk Direnci \u0130ksiri"
   PotionIcon: {fileID: 0}
   PotionColor: {r: 0.7647059, g: 0.011764706, b: 0.33333334, a: 1}
+  PotionPrice: 200
   PotionPrefab: {fileID: 1246944653551101293, guid: cfaea8a799f65fa4eb4a11db833d3f60, type: 3}

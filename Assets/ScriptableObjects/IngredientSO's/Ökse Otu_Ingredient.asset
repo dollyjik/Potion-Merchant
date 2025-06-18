@@ -20,4 +20,4 @@ MonoBehaviour:
   ingredientColor: {r: 1, g: 1, b: 1, a: 1}
   isFarmable: 1
   isPurchasable: 1
-  ingredientPrice: 215
+  ingredientPrice: 80

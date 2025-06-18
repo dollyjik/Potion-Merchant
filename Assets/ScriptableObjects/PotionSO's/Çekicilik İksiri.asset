@@ -16,4 +16,5 @@ MonoBehaviour:
   PotionName: "\xC7ekicilik \u0130ksiri"
   PotionIcon: {fileID: 0}
   PotionColor: {r: 0.9098039, g: 0.44313726, b: 0.05882353, a: 1}
+  PotionPrice: 200
   PotionPrefab: {fileID: 6881492221875660264, guid: a46a7ef07ddddeb4da680bc81e2851d2, type: 3}

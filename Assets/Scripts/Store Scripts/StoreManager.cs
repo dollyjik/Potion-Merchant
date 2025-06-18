@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 using UnityEngine.Serialization;
+using System.Collections;
 
 public class StoreManager : MonoBehaviour
 {
@@ -19,12 +20,17 @@ public class StoreManager : MonoBehaviour
     [SerializeField] private Button cropButton;
     [SerializeField] private Button miscButton;
     [SerializeField] private JarScript[] jars;
+    [SerializeField] private Transform spawnPoint;
+
+    [SerializeField] private OwlScript owl;
     
     public List<IngredientsSO> allIngredients;
     
     [SerializeField] private List<GameObject> _currentDisplayedItems = new List<GameObject>();
     private Button _currentActiveButton;
 
+    // Ingredient kuyruğu - owl uçarken satın alınan ingredient'lar burada bekleyecek
+    private Queue<IngredientsSO> pendingIngredients = new Queue<IngredientsSO>();
 
     private void Start()
     {
@@ -38,6 +44,14 @@ public class StoreManager : MonoBehaviour
         jars = FindObjectsByType<JarScript>(0);
         
         UpdateButtonState(allButton);
+    }
+
+    private void Update()
+    {
+        if (!owl.isFlying)
+        { 
+            ProcessPendingIngredients();
+        }
     }
 
     private void PopulateStore(string filter)
@@ -67,22 +81,52 @@ public class StoreManager : MonoBehaviour
     {
         if (moneyManager.currentMoney > ingredient.ingredientPrice)
         {
+            owl.isFlying = true;
             moneyManager.SubtractMoney(ingredient.ingredientPrice);
             Debug.Log($"Purchased: {ingredient.ingredientName} for ${ingredient.ingredientPrice}");
 
-            // Satın alınan ingredient, hangi jar'a aitse ona 1 adet ekle
-            foreach (var jar in jars)
+            if (owl.isFlying)
             {
-                if (jar != null && jar.GetComponent<IngredientSOHolder>().ingredientSO == ingredient)
-                {
-                    jar.AddIngredient();
-                    break; // eşleşen ilk jar'a ekledik, durabiliriz
-                }
+                // Owl uçuyor, ingredient'ı kuyruğa ekle
+                pendingIngredients.Enqueue(ingredient);
+                Debug.Log($"Owl is flying, {ingredient.ingredientName} added to pending queue.");
             }
         }
         else
         {
             Debug.Log("Not enough money");
+        }
+    }
+
+    public void ProcessPendingIngredients()
+    {
+        Debug.Log($"Owl landed! Processing {pendingIngredients.Count} pending ingredients.");
+        
+        while (pendingIngredients.Count > 0)
+        {
+            IngredientsSO ingredient = pendingIngredients.Dequeue();
+            if (ingredient.seedData != null)
+            {
+                Debug.Log($"{ingredient.ingredientName} spawned.");
+                Instantiate(ingredient.ingredientPrefab, spawnPoint);
+            }
+            else if (ingredient.seedData == null)
+            {
+                AddIngredientToJar(ingredient);
+            }
+        }
+    }
+
+    private void AddIngredientToJar(IngredientsSO ingredient)
+    {
+        foreach (var jar in jars)
+        {
+            if (jar != null && jar.GetComponent<IngredientSOHolder>().ingredientSO == ingredient)
+            {
+                jar.AddIngredient();
+                Debug.Log($"Added {ingredient.ingredientName} to jar.");
+                break;
+            }
         }
     }
 

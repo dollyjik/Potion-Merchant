@@ -98,9 +98,10 @@ GameObject:
   - component: {fileID: 6996411950375453510}
   - component: {fileID: 7266416999858071404}
   - component: {fileID: 1423481974272296331}
+  - component: {fileID: 8046400449063407110}
   m_Layer: 0
   m_Name: "\xC7ekicilik \u0130ksiri"
-  m_TagString: canPickUp
+  m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,6 +171,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8046400449063407110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6881492221875660264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321c5d5131cccaf4d8ae6a5d2c08290e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionSO: {fileID: 11400000, guid: 4b479ca9af659844b832478a8c1e29ea, type: 2}
 --- !u!1 &7492881153561484346
 GameObject:
   m_ObjectHideFlags: 0

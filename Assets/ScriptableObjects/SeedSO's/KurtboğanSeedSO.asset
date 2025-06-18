@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ead0cdec9d48e142952bfe0ce4b2605, type: 3}
+  m_Name: "Kurtbo\u011FanSeedSO"
+  m_EditorClassIdentifier: 
+  seedName: "Kurtbo\u011Fan Tohumu"
+  seedIcon: {fileID: 21300000, guid: 43ca435ee013a9248b9df08b6904624c, type: 3}
+  plantPrefab: {fileID: 3190884253601666396, guid: aee53e13772b780449587fa055a7dc8a, type: 3}

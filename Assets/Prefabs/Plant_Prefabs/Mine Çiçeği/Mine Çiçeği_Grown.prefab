@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8574860908291271208}
   - component: {fileID: 6414437407010311163}
   - component: {fileID: 5841306396061911511}
-  - component: {fileID: 5983051813045954588}
   - component: {fileID: 4022234290389988925}
   m_Layer: 0
   m_Name: "Mine \xC7i\xE7e\u011Fi_Grown"
@@ -88,28 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5983051813045954588
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5976777546135414989}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8433832427835393222, guid: 6faf29ef873374a4e88a2b0877f6c883, type: 3}
 --- !u!114 &4022234290389988925
 MonoBehaviour:
   m_ObjectHideFlags: 0

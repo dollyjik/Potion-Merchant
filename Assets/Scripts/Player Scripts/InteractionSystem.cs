@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InteractionSystem : MonoBehaviour
 {
@@ -11,6 +12,14 @@ public class InteractionSystem : MonoBehaviour
     [SerializeField] private Rigidbody heldObjRb;
     [SerializeField] private GameObject storeUI;
     [SerializeField] private MoneyManager moneyManager;
+    [SerializeField] private DialogueManager dialogueManager;
+    [SerializeField] private DayManager dayManager;
+    [SerializeField] private CustomerQueueManager customerQueueManager;
+    [SerializeField] public SeedData selectedSeed;
+    [SerializeField] private AudioClip yawnSound;
+    public AudioSource audioSource;
+    [SerializeField] private UIManager uiManager; 
+
     
     [Header("Keybindings")]
     [SerializeField] private KeyCode firstInteractionKey = KeyCode.E;
@@ -27,28 +36,83 @@ public class InteractionSystem : MonoBehaviour
     [SerializeField] private float throwForce;
     [SerializeField] private float pickUpRange;
     [SerializeField] private float itemRotationSpeed;
+    [SerializeField] private bool isStoreUIOpened;
     [SerializeField] private bool canDrop = true;
-    [SerializeField] private int layerNumber;
+    [SerializeField] private LayerMask _layerMask ;
 
 
     private void Start()
     {
         playerCam = FindAnyObjectByType<PlayerCam>();
         moneyManager = FindAnyObjectByType<MoneyManager>( 0);
+        dialogueManager = FindAnyObjectByType<DialogueManager>( 0);
+        dayManager = FindAnyObjectByType<DayManager>( 0);
+        customerQueueManager = FindAnyObjectByType<CustomerQueueManager>( 0);
     }
 
     private void Update()
     {
         if (heldObj != null)
         {
-            MoveObject();
-            RotateObject();
-        }
+            if (Input.GetMouseButtonDown(0) && heldObj.TryGetComponent<SeedSOHolder>(out SeedSOHolder seedSOHolder))
+            {
+                Collider heldCollider = heldObj.GetComponent<Collider>();
+                bool originalState = heldCollider.enabled;
+                heldCollider.enabled = false; // Geçici olarak collider'ı kapat
 
-        if (playerCam.isUIOpened && Input.GetKeyDown(closeUIKey))
+                RaycastHit hit;
+                if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out hit, pickUpRange))
+                {
+                    Debug.Log("Raycast hit: " + hit.collider.name); 
+
+                    PlantingSpot plantingSpot = hit.collider.GetComponent<PlantingSpot>();
+
+                    if (plantingSpot != null)
+                    {
+                        plantingSpot.Plant(heldObj.GetComponent<SeedSOHolder>().seedData.plantPrefab);
+                        Debug.Log("Planted");
+                    }
+                    else
+                    {
+                        Debug.LogWarning("The object " + hit.collider.name + " does not have a PlantingSpot script!");
+                    }
+                }
+                Destroy(heldObj);
+                heldCollider.enabled = originalState; // Collider'ı eski haline getir
+            }
+
+            else
+            {
+                MoveObject();
+                RotateObject();
+            }
+        }
+        
+        if (!uiManager.isEscapePanelOpen && Input.GetKeyDown(closeUIKey) && !isStoreUIOpened)
+        {
+            uiManager.escapePanel.SetActive(true);
+            Time.timeScale = 0f;
+            playerCam.isUIOpened = true;
+            uiManager.isEscapePanelOpen = true;
+        }
+        
+        else if (uiManager.isEscapePanelOpen && Input.GetKeyDown(closeUIKey) && !isStoreUIOpened)
+        {
+            uiManager.escapePanel.SetActive(false);
+            Time.timeScale = 1f;
+            playerCam.isUIOpened = false;
+            uiManager.isEscapePanelOpen = false;
+        }
+        
+        else if (playerCam.isUIOpened && Input.GetKeyDown(closeUIKey))
         {
             storeUI.SetActive(false);
             playerCam.isUIOpened = false;
+        }
+        
+        if (dialogueManager.isDialogueOpen && Input.GetKeyDown(firstInteractionKey))
+        {
+            dialogueManager.DisplayNextSentence();
         }
 
         if (Input.GetKeyDown(firstInteractionKey))
@@ -66,9 +130,22 @@ public class InteractionSystem : MonoBehaviour
                         cauldronScript.Craft();
                     }
 
+                    if (hit.transform.gameObject.CompareTag("Bath"))
+                    {
+                        Bath bathScript = hit.transform.gameObject.GetComponent<Bath>();
+                        bathScript.TetikleEkranKarartma();
+                        audioSource.PlayOneShot(yawnSound);
+                        dayManager.FinishDay();
+                        foreach (GameObject customer in GameObject.FindGameObjectsWithTag("Customer"))
+                        {
+                            Destroy(customer);
+                        }
+                    }
+                    
                     if (hit.transform.gameObject.CompareTag("owlInteraction"))
                     {
                         storeUI.SetActive(true);
+                        isStoreUIOpened = true;
                         playerCam.isUIOpened = true;
                     }
 
@@ -91,18 +168,18 @@ public class InteractionSystem : MonoBehaviour
                     if (hit.transform.gameObject.CompareTag("Plant"))
                     {
                         PlantStateMachine plantStateMachine = hit.transform.GetComponent<PlantStateMachine>();
-                        JarScript plantJar = plantStateMachine.PlantJar.GetComponent<JarScript>();
+                        IngredientSOHolder ingredientSOHolder = hit.transform.GetComponent<IngredientSOHolder>();
                         if (plantStateMachine.currentState == plantStateMachine.fruitState)
                         {
                             if (plantStateMachine.grownState != null)
                             {
                                 plantStateMachine.ChangeState(plantStateMachine.grownState);
-                                plantJar.AddIngredient();
+                                plantStateMachine.AddIngredientToJar(ingredientSOHolder.ingredientSO);
                             }
                             else if (plantStateMachine.grownState == null)
                             {
                                 plantStateMachine.ChangeState(plantStateMachine.growingState);
-                                plantJar.AddIngredient();
+                                plantStateMachine.AddIngredientToJar(ingredientSOHolder.ingredientSO);
                             }
                         }
                     }
@@ -144,7 +221,7 @@ public class InteractionSystem : MonoBehaviour
 
         if (Input.GetKeyDown(moneyHackKey))
         {
-            moneyManager.AddMoney();
+            moneyManager.AddMoney(500);
         }
         
         if (Input.GetKeyDown(thirdInteractionKey))
@@ -170,7 +247,7 @@ public class InteractionSystem : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position, transform.forward, out hit, pickUpRange))
                 {
-                    if (hit.transform.gameObject.CompareTag("canPickUp"))
+                    if (hit.transform.gameObject.CompareTag("canPickUp") || hit.transform.gameObject.CompareTag("Potion"))
                     {
                         PickUpObject(hit.transform.gameObject);
                     }
@@ -201,7 +278,7 @@ public class InteractionSystem : MonoBehaviour
             heldObjRb = pickUpObj.GetComponent<Rigidbody>();
             heldObjRb.isKinematic = true;
             heldObjRb.transform.parent = holdPos.transform;
-            heldObj.layer = layerNumber;
+            heldObj.layer = 8;
             Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
         }
     }

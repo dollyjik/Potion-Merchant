@@ -98,9 +98,10 @@ GameObject:
   - component: {fileID: 5998497781844599286}
   - component: {fileID: 2055641938259838532}
   - component: {fileID: 5273525222609548157}
+  - component: {fileID: 4333432684820668608}
   m_Layer: 0
   m_Name: "Ba\u011Fl\u0131l\u0131k \u0130ksiri "
-  m_TagString: canPickUp
+  m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,6 +171,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4333432684820668608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3812746236936974423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321c5d5131cccaf4d8ae6a5d2c08290e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionSO: {fileID: 11400000, guid: 9d17c072e8ef06542979c05e6837ed6f, type: 2}
 --- !u!1 &5278217401172527224
 GameObject:
   m_ObjectHideFlags: 0

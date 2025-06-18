@@ -16,4 +16,5 @@ MonoBehaviour:
   PotionName: "\u015Eifa \u0130ksiri"
   PotionIcon: {fileID: 0}
   PotionColor: {r: 0.6509804, g: 0.53333336, b: 0.7294118, a: 1}
+  PotionPrice: 120
   PotionPrefab: {fileID: 3493636299649586787, guid: 72437f551a3279f4c9dfa3d816fba918, type: 3}

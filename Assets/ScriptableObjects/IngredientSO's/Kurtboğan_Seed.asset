@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d8e92acffb043541b339682780a6fae, type: 3}
+  m_Name: "Kurtbo\u011Fan_Seed"
+  m_EditorClassIdentifier: 
+  ingredientID: 7
+  ingredientName: "Kurtbo\u011Fan Tohumu"
+  ingredientType: 0
+  ingredientIcon: {fileID: 21300000, guid: 43ca435ee013a9248b9df08b6904624c, type: 3}
+  ingredientPrefab: {fileID: 7221702974623872653, guid: 3e9ed1c42d415fd48a00abb9770fb18d, type: 3}
+  ingredientColor: {r: 0.9056604, g: 0.6782389, b: 0.33748665, a: 1}
+  seedData: {fileID: 11400000, guid: 666e8142f177c4b4881f70356a8ce25c, type: 2}
+  isFarmable: 0
+  isPurchasable: 1
+  ingredientPrice: 2200

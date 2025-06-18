@@ -16,4 +16,5 @@ MonoBehaviour:
   PotionName: "Ba\u011Fl\u0131l\u0131k \u0130ksiri"
   PotionIcon: {fileID: 0}
   PotionColor: {r: 0.47058824, g: 0.3019608, b: 0.23137255, a: 1}
+  PotionPrice: 250
   PotionPrefab: {fileID: 3812746236936974423, guid: 180f7c3d5f6d7444096ad4f818899ec9, type: 3}

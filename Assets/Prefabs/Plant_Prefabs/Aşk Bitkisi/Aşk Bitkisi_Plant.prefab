@@ -46,10 +46,11 @@ GameObject:
   - component: {fileID: 3811825974437064129}
   - component: {fileID: 6675880413207373436}
   - component: {fileID: 1606278284612178235}
-  - component: {fileID: 8177386385095288790}
+  - component: {fileID: -2010490896076133150}
+  - component: {fileID: 3822171167437833502}
   m_Layer: 0
   m_Name: "A\u015Fk Bitkisi_Plant"
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,7 +86,10 @@ MonoBehaviour:
   dayManager: {fileID: 0}
   plantDay: 0
   plantTime: 0
+  plantSound: {fileID: 8300000, guid: 86fa6667c3825ce4f807cbf83b34ed9a, type: 3}
+  audioSource: {fileID: 0}
   stateMachine: {fileID: 0}
+  jars: []
 --- !u!114 &1606278284612178235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,10 +105,24 @@ MonoBehaviour:
   saplingState: {fileID: 7400956324310135306}
   growingState: {fileID: 9060120980065153778}
   fruitState: {fileID: 2083968884856390375}
-  grownState: {fileID: 6242984241303547121}
+  grownState: {fileID: 0}
   currentState: {fileID: 0}
---- !u!65 &8177386385095288790
-BoxCollider:
+  jars: []
+--- !u!114 &-2010490896076133150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3967267448128163626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76fc2f21b0b8867429c22b3cdf09b3e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientSO: {fileID: 11400000, guid: e0683c4e3afd6ac45beb9a761a345fc3, type: 2}
+--- !u!136 &3822171167437833502
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -121,9 +139,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6.221484, y: 6.538579, z: 4.0239897}
-  m_Center: {x: 0.17914343, y: 3.2471576, z: -0.23346686}
+  serializedVersion: 2
+  m_Radius: 0.6625819
+  m_Height: 5.1407976
+  m_Direction: 1
+  m_Center: {x: 0, y: 2.4522762, z: 0}
 --- !u!1001 &532966870013274611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -176,6 +196,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P4_Sapling
       objectReference: {fileID: 0}
+    - target: {fileID: 3003846211061850999, guid: 4850cf9052ed55f449758acdf263574c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3985394148684022186, guid: 4850cf9052ed55f449758acdf263574c, type: 3}
     m_RemovedGameObjects: []
@@ -209,6 +233,10 @@ PrefabInstance:
     - target: {fileID: 7654109837659753638, guid: c81cfd522c1bdd54db4b087ba91552a5, type: 3}
       propertyPath: m_Name
       value: P4_Grown
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654109837659753638, guid: c81cfd522c1bdd54db4b087ba91552a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7711087850803171248, guid: c81cfd522c1bdd54db4b087ba91552a5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -256,17 +284,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c81cfd522c1bdd54db4b087ba91552a5, type: 3}
---- !u!114 &6242984241303547121 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5435177577635292383, guid: c81cfd522c1bdd54db4b087ba91552a5, type: 3}
-  m_PrefabInstance: {fileID: 2147698203080575022}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b231bf207ac76774fbf6ed199603aec2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &8560605847018325918 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7711087850803171248, guid: c81cfd522c1bdd54db4b087ba91552a5, type: 3}
@@ -401,6 +418,10 @@ PrefabInstance:
     - target: {fileID: 7731183698365777364, guid: 27af7880e3b2ab5448f8e6d78f81772f, type: 3}
       propertyPath: m_Name
       value: P4_Growing
+      objectReference: {fileID: 0}
+    - target: {fileID: 7731183698365777364, guid: 27af7880e3b2ab5448f8e6d78f81772f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -8333843798337966746, guid: 27af7880e3b2ab5448f8e6d78f81772f, type: 3}

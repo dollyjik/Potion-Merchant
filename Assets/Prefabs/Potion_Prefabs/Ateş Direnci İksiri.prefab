@@ -212,9 +212,10 @@ GameObject:
   - component: {fileID: 4382589406928141618}
   - component: {fileID: 8493209872054402053}
   - component: {fileID: 3613467827090077546}
+  - component: {fileID: -2020594532352906864}
   m_Layer: 0
   m_Name: "Ate\u015F Direnci \u0130ksiri"
-  m_TagString: canPickUp
+  m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -284,3 +285,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-2020594532352906864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4752390272906371895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321c5d5131cccaf4d8ae6a5d2c08290e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionSO: {fileID: 11400000, guid: c2f8c9ad4af62e344a38ef557395ba52, type: 2}

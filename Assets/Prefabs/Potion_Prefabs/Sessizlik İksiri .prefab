@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 6180735769370735988}
   - component: {fileID: 3567250603048708052}
   - component: {fileID: 1743557059257996534}
+  - component: {fileID: 8707529753837197679}
   m_Layer: 0
   m_Name: "Sessizlik \u0130ksiri "
-  m_TagString: canPickUp
+  m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,6 +84,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8707529753837197679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532859490380594677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321c5d5131cccaf4d8ae6a5d2c08290e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionSO: {fileID: 11400000, guid: 18774fc4c8c6d444d851125dfaf7ddc2, type: 2}
 --- !u!1 &2047152024357929612
 GameObject:
   m_ObjectHideFlags: 0

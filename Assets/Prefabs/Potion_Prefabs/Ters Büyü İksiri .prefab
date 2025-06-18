@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 6033950566358786958}
   - component: {fileID: 1465912513682194429}
   - component: {fileID: 1441993678451888078}
+  - component: {fileID: 5852038934399379318}
   m_Layer: 0
   m_Name: "Ters B\xFCy\xFC \u0130ksiri "
-  m_TagString: canPickUp
+  m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,6 +84,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5852038934399379318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3913990207001844417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321c5d5131cccaf4d8ae6a5d2c08290e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionSO: {fileID: 11400000, guid: 086f9bdbdc03b07408a647eac205feec, type: 2}
 --- !u!1 &6457014123442563797
 GameObject:
   m_ObjectHideFlags: 0

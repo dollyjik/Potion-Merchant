@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d8e92acffb043541b339682780a6fae, type: 3}
+  m_Name: Gonca_Seed
+  m_EditorClassIdentifier: 
+  ingredientID: 11
+  ingredientName: Gonca
+  ingredientType: 0
+  ingredientIcon: {fileID: 21300000, guid: 279c59adc7809104cb1844e3918e9678, type: 3}
+  ingredientPrefab: {fileID: 8720465485506031996, guid: 7cc5e4ee9c777a844b8e4b08ff4e194a, type: 3}
+  ingredientColor: {r: 0.30172348, g: 0.06759523, b: 0.46226418, a: 1}
+  seedData: {fileID: 11400000, guid: 51e5a14530fe5d441bfdaeaa9374fb29, type: 2}
+  isFarmable: 0
+  isPurchasable: 1
+  ingredientPrice: 2200

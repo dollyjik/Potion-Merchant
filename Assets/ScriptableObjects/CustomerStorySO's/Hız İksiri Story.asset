@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac220dab2d9246e40a988402b9007d81, type: 3}
+  m_Name: "H\u0131z \u0130ksiri Story"
+  m_EditorClassIdentifier: 
+  storyLines:
+  - "Yar\u0131\u015Fa birka\xE7 dakika kald\u0131 ama bacaklar\u0131m h\xE2l\xE2
+    a\u011F\u0131r"
+  - "R\xFCzgar gibi ge\xE7mem gerek."
+  - "Yard\u0131m edebilir misin?"
+  wantedPotion: {fileID: 11400000, guid: 14a503d281ce70a48a9b00b022afe36b, type: 2}

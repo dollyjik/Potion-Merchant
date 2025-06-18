@@ -9,7 +9,6 @@ public class MoneyManager : MonoBehaviour
 
     private void Start()
     {
-        currentMoney = 0;
         UpdateMoneyText();
     }
 
@@ -18,9 +17,9 @@ public class MoneyManager : MonoBehaviour
         moneyText.text = currentMoney.ToString() + "$";
     }
 
-    public void AddMoney()
+    public void AddMoney(int price)
     {
-        currentMoney += 1000;
+        currentMoney += price;
         UpdateMoneyText();
     }
 

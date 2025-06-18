@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3086378456635810907}
   - component: {fileID: 4289068994672602705}
   - component: {fileID: 883262904508802965}
+  - component: {fileID: -5251087442655888033}
   m_Layer: 0
   m_Name: "Zihin A\xE7\u0131kl\u0131\u011F\u0131 \u0130ksiri"
-  m_TagString: canPickUp
+  m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,6 +84,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-5251087442655888033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2258805540474056958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321c5d5131cccaf4d8ae6a5d2c08290e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionSO: {fileID: 11400000, guid: f03fe6ef0a9604349a49d02f80c0dfee, type: 2}
 --- !u!1 &6999270590812888698
 GameObject:
   m_ObjectHideFlags: 0

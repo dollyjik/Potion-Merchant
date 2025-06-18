@@ -98,9 +98,10 @@ GameObject:
   - component: {fileID: 3042849706859848287}
   - component: {fileID: 1162818947938057069}
   - component: {fileID: 8126682954185574613}
+  - component: {fileID: -4632501783777972598}
   m_Layer: 0
   m_Name: "Dayan\u0131kl\u0131l\u0131k \u0130ksiri "
-  m_TagString: canPickUp
+  m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,6 +171,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-4632501783777972598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3127270618446716678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321c5d5131cccaf4d8ae6a5d2c08290e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionSO: {fileID: 11400000, guid: b5eabde0d3de82e4f99675d0bcd21480, type: 2}
 --- !u!1 &6856684114988386331
 GameObject:
   m_ObjectHideFlags: 0

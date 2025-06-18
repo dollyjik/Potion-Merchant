@@ -13,13 +13,28 @@ public class DayManager : MonoBehaviour
     public GameEvent onDayFinished;
     [Header("Variables")]
     [Range(0, 24)] public float timeOfDay;
-    private const float TimeOfDaySpeed = 0.01675f;
+
+    private float dayStartTime = 7;
+    private const float TimeOfDaySpeed = 0.05f;
     public int currentDay;
     [SerializeField] private Material skyboxMaterial;
     [SerializeField] private Cubemap skyboxA;
     [SerializeField] private Cubemap skyboxB;
 
+    // Define customer active hours
+    private const float CustomerSpawnStartTime = 9f; // 9 AM
+    private const float CustomerSpawnEndTime = 21f; // 9 PM (21:00)
 
+    private bool customersAreActive = false; // Track if customers should be spawning
+
+    private void Start()
+    {
+        timeOfDay = dayStartTime;
+        currentDay = 1; // Start at Day 1
+        UpdateClock(timeOfDay); // Initial clock update
+        UpdateCurrentDayText(); // Initial day text update
+    }
+    
     private void Update()
     {
         if (!preset)
@@ -28,10 +43,17 @@ public class DayManager : MonoBehaviour
         if (Application.isPlaying)
         {
             timeOfDay += Time.deltaTime * TimeOfDaySpeed;
-            timeOfDay %= 24f;
+            
+            // Check for new day
+            if (timeOfDay >= 24f)
+            {
+                timeOfDay %= 24f;
+                FinishDay(); // Advance to the next day
+            }
+            
             UpdateLighting(timeOfDay / 24f);
             UpdateClock(timeOfDay);
-            FinishDay();
+            HandleCustomerSpawningBasedOnTime();
         }
         else
         {
@@ -40,13 +62,19 @@ public class DayManager : MonoBehaviour
         }
     }
 
-    private void FinishDay()
+    public void FinishDay()
     {
-        if (timeOfDay == 0f)
+        currentDay++;
+        timeOfDay = dayStartTime; // Reset time to start of day
+        UpdateCurrentDayText();
+        onDayFinished.Raise(this, currentDay);
+
+        // Notify Customer Spawner to reset daily count for the new day
+        if (CustomerSpawner.Instance != null)
         {
-            currentDay++;
-            onDayFinished.Raise(this, currentDay);
+            CustomerSpawner.Instance.ResetDailyCustomers();
         }
+        Debug.Log($"Day Finished! Moving to Day {currentDay}");
     }
     
     private void UpdateClock(float currentTime)
@@ -54,7 +82,34 @@ public class DayManager : MonoBehaviour
         int hours = Mathf.FloorToInt(currentTime);
         int minutes = Mathf.FloorToInt((currentTime - hours) * 60);
         clockText.text = string.Format("{0:00}:{1:00}", hours, minutes);
-        currentDayText.text = currentDay.ToString();
+    }
+
+    private void UpdateCurrentDayText()
+    {
+        currentDayText.text = "Day " + currentDay.ToString();
+    }
+
+    private void HandleCustomerSpawningBasedOnTime()
+    {
+        if (CustomerSpawner.Instance == null) return;
+
+        // Check if current time is within active customer hours
+        bool shouldBeActive = timeOfDay >= CustomerSpawnStartTime && timeOfDay < CustomerSpawnEndTime;
+
+        if (shouldBeActive && !customersAreActive)
+        {
+            // Enter active hours
+            customersAreActive = true;
+            CustomerSpawner.Instance.EnableSpawning();
+            Debug.Log($"Customer active hours started ({CustomerSpawnStartTime:00}:00).");
+        }
+        else if (!shouldBeActive && customersAreActive)
+        {
+            // Exit active hours
+            customersAreActive = false;
+            CustomerSpawner.Instance.DisableSpawning();
+            Debug.Log($"Customer active hours ended ({CustomerSpawnEndTime:00}:00).");
+        }
     }
 
     private void UpdateLighting(float timePercent)

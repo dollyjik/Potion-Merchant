@@ -16,4 +16,5 @@ MonoBehaviour:
   PotionName: "Kara G\xF6lge \u0130ksiri"
   PotionIcon: {fileID: 0}
   PotionColor: {r: 0.5411765, g: 0.42745098, b: 0.46666667, a: 1}
+  PotionPrice: 800
   PotionPrefab: {fileID: 3160661692789265939, guid: c50e35de62d218c418b44e6df721e791, type: 3}

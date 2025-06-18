@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac220dab2d9246e40a988402b9007d81, type: 3}
+  m_Name: "Hafif Uyku \u0130ksiri Story"
+  m_EditorClassIdentifier: 
+  storyLines:
+  - Uyuyorum ama sanki dinlenmiyorum.
+  - "Hafif bir uykuya dal\u0131p g\xFCn do\u011Fmadan uyanmak istiyorum."
+  wantedPotion: {fileID: 11400000, guid: 1da43956faadb144396d728e9b8728a4, type: 2}

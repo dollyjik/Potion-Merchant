@@ -20,4 +20,4 @@ MonoBehaviour:
   ingredientColor: {r: 0.6124778, g: 0.38042897, b: 0.9716981, a: 1}
   isFarmable: 0
   isPurchasable: 1
-  ingredientPrice: 124214
+  ingredientPrice: 140

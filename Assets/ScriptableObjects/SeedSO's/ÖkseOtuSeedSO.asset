@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ead0cdec9d48e142952bfe0ce4b2605, type: 3}
+  m_Name: "\xD6kseOtuSeedSO"
+  m_EditorClassIdentifier: 
+  seedName: "\xD6kse Otu Tohumu"
+  seedIcon: {fileID: 21300000, guid: 79e8239c5723cc941a3e498054e5c3f7, type: 3}
+  plantPrefab: {fileID: 1845454865268426709, guid: 5b10f2930716a80448747c9dfc27470e, type: 3}

@@ -16,4 +16,5 @@ MonoBehaviour:
   PotionName: "\xD6l\xFCm Uykusu \u0130ksiri"
   PotionIcon: {fileID: 0}
   PotionColor: {r: 0.45882353, g: 0.7372549, b: 0.48235294, a: 1}
+  PotionPrice: 400
   PotionPrefab: {fileID: 2473836881020024047, guid: 3125feef0594f6d4c9ebc51b4f7d171c, type: 3}

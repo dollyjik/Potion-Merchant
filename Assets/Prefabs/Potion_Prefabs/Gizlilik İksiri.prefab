@@ -125,9 +125,10 @@ GameObject:
   - component: {fileID: 3974625770188519230}
   - component: {fileID: 405704669275948914}
   - component: {fileID: 7636037415874631304}
+  - component: {fileID: -8175596156696029859}
   m_Layer: 0
   m_Name: "Gizlilik \u0130ksiri"
-  m_TagString: canPickUp
+  m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -197,6 +198,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-8175596156696029859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3087270810971889625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321c5d5131cccaf4d8ae6a5d2c08290e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionSO: {fileID: 11400000, guid: aaeaa02317f92d142b5e1c2921ac8603, type: 2}
 --- !u!1 &3208502160876263545
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,5 +15,6 @@ MonoBehaviour:
   PotionID: 7
   PotionName: "Gelece\u011Fi G\xF6rme \u0130ksiri"
   PotionIcon: {fileID: 0}
-  PotionColor: {r: 0.40784314, g: 0.2, b: 0.25490198, a: 0}
-  PotionPrefab: {fileID: 715083232963588987, guid: 40889551508f72d4eafd05ed0b91df39, type: 3}
+  PotionColor: {r: 0.40784314, g: 0.2, b: 0.25490198, a: 1}
+  PotionPrice: 650
+  PotionPrefab: {fileID: 542102742393632073, guid: 40889551508f72d4eafd05ed0b91df39, type: 3}

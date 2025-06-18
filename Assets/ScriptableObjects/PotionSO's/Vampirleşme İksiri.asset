@@ -16,4 +16,5 @@ MonoBehaviour:
   PotionName: "Vampirle\u015Fme \u0130ksiri"
   PotionIcon: {fileID: 0}
   PotionColor: {r: 0.69411767, g: 0.2784314, b: 0.19215687, a: 1}
-  PotionPrefab: {fileID: 6841026710574292267, guid: 36c340175ac6c3e4588a4b6d357fb2be, type: 3}
+  PotionPrice: 650
+  PotionPrefab: {fileID: 6795130435907643264, guid: 31888197e5f07874689ba43cd72daaad, type: 3}

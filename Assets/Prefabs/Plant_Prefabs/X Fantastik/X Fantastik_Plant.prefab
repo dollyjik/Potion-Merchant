@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 1542688413632311654}
   - component: {fileID: 8637922759293166170}
   - component: {fileID: 3495351369575751162}
-  - component: {fileID: 3657369168327871405}
+  - component: {fileID: 288062573300013142}
+  - component: {fileID: 3040307457767932258}
   m_Layer: 0
   m_Name: X Fantastik_Plant
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,7 +51,10 @@ MonoBehaviour:
   dayManager: {fileID: 0}
   plantDay: 0
   plantTime: 0
+  plantSound: {fileID: 8300000, guid: 86fa6667c3825ce4f807cbf83b34ed9a, type: 3}
+  audioSource: {fileID: 0}
   stateMachine: {fileID: 0}
+  jars: []
 --- !u!114 &3495351369575751162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,10 +70,24 @@ MonoBehaviour:
   saplingState: {fileID: 5304004107317097390}
   growingState: {fileID: 8948956107176511331}
   fruitState: {fileID: 8719612708350791936}
-  grownState: {fileID: 6245948656317525192}
+  grownState: {fileID: 0}
   currentState: {fileID: 0}
---- !u!65 &3657369168327871405
-BoxCollider:
+  jars: []
+--- !u!114 &288062573300013142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2644695382662325688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76fc2f21b0b8867429c22b3cdf09b3e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientSO: {fileID: 11400000, guid: 71c4795cb33061147b03dda2b3fd8c38, type: 2}
+--- !u!136 &3040307457767932258
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -86,9 +104,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.554659, y: 2.813087, z: 2.6789398}
-  m_Center: {x: -0.012259483, y: 1.3925335, z: -0.023438692}
+  serializedVersion: 2
+  m_Radius: 0.62934244
+  m_Height: 2.994964
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.3868202, z: 0}
 --- !u!1 &6605786002424541891
 GameObject:
   m_ObjectHideFlags: 0

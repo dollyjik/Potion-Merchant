@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4142863262715021231}
   - component: {fileID: 6989516775907471846}
   - component: {fileID: 679197251135576240}
-  - component: {fileID: 1718835136055486782}
   - component: {fileID: 57973879536208551}
   m_Layer: 0
   m_Name: Gonca_Sapling
@@ -88,28 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1718835136055486782
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4245692441950480424}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6858782856705400309, guid: 9149afe5f4178e64bbc87933d0a345f3, type: 3}
 --- !u!114 &57973879536208551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f057bd7b76c7bcf47b99e23458fd29f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  growDuration: 10
+  growDuration: 30
   startScale: {x: 800, y: 800, z: 800}
   finishScale: {x: 800, y: 800, z: 1415}
   onSaplingStateFinished: {fileID: 11400000, guid: 2aaad4a146dd29e459179763300ec71f, type: 2}

@@ -7,5 +7,6 @@ public class PotionSO : ScriptableObject
     public string PotionName;
     public Sprite PotionIcon;
     public Color PotionColor;
+    public int PotionPrice;
     public GameObject PotionPrefab;
 }

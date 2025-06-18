@@ -98,9 +98,10 @@ GameObject:
   - component: {fileID: 6771787855002979249}
   - component: {fileID: 2255944321401058675}
   - component: {fileID: 1925757619333401127}
+  - component: {fileID: -6234101979199490626}
   m_Layer: 0
   m_Name: "Demir Deri \u0130ksiri "
-  m_TagString: canPickUp
+  m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,6 +171,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-6234101979199490626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626237805090762794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321c5d5131cccaf4d8ae6a5d2c08290e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionSO: {fileID: 11400000, guid: 2ec3ed3106370d741ae29d6e61f83697, type: 2}
 --- !u!1 &2830129995867710456
 GameObject:
   m_ObjectHideFlags: 0

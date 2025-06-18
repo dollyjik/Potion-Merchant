@@ -16,4 +16,5 @@ MonoBehaviour:
   PotionName: "Hafif Uyku \u0130ksiri"
   PotionIcon: {fileID: 0}
   PotionColor: {r: 0.7921569, g: 0.7411765, b: 0.5529412, a: 1}
+  PotionPrice: 150
   PotionPrefab: {fileID: 5653726839001962836, guid: 839d778dd04d62b49b733abdfd2fdeca, type: 3}

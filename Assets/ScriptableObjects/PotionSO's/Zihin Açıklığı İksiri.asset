@@ -16,4 +16,5 @@ MonoBehaviour:
   PotionName: "Zihin A\xE7\u0131kl\u0131\u011F\u0131 \u0130ksiri"
   PotionIcon: {fileID: 0}
   PotionColor: {r: 0.28235295, g: 0.46666667, b: 0.81960785, a: 1}
+  PotionPrice: 120
   PotionPrefab: {fileID: 2258805540474056958, guid: a1f9e3bc172ff0345b9ba3810da3ddf3, type: 3}

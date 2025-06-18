@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3092715629443730733}
   - component: {fileID: 1804286825516996839}
   - component: {fileID: 7163121398010873950}
+  - component: {fileID: 4066576914956978348}
   m_Layer: 0
   m_Name: "So\u011Fuk Direnci \u0130ksiri"
-  m_TagString: canPickUp
+  m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,6 +84,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4066576914956978348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246944653551101293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321c5d5131cccaf4d8ae6a5d2c08290e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionSO: {fileID: 11400000, guid: bf6ceae7f6244c0488e1d37ddd0b7eda, type: 2}
 --- !u!1 &3003481050589714242
 GameObject:
   m_ObjectHideFlags: 0

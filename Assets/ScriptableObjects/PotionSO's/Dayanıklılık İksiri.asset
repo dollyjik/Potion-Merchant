@@ -16,4 +16,5 @@ MonoBehaviour:
   PotionName: "Dayan\u0131kl\u0131l\u0131k \u0130ksiri"
   PotionIcon: {fileID: 0}
   PotionColor: {r: 0.8627451, g: 0.78431374, b: 0.22745098, a: 1}
+  PotionPrice: 200
   PotionPrefab: {fileID: 3127270618446716678, guid: d8d697e7fc225ec429e251c25335ed6f, type: 3}

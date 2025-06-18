@@ -11,6 +11,7 @@ public class IngredientsSO : ScriptableObject
     public Sprite ingredientIcon;
 	public GameObject ingredientPrefab;
     public Color ingredientColor;
+    public SeedData seedData;
     
     [Header("Bool's")]
     public bool isFarmable; //Is it obtainable via Farming

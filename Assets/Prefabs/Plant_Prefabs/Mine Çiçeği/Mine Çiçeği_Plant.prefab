@@ -46,10 +46,11 @@ GameObject:
   - component: {fileID: 8707962469286331438}
   - component: {fileID: 3474953663333867968}
   - component: {fileID: 2792199273045122364}
-  - component: {fileID: 4034236005114563362}
+  - component: {fileID: 6657483979173428791}
+  - component: {fileID: 2480372883209893085}
   m_Layer: 0
   m_Name: "Mine \xC7i\xE7e\u011Fi_Plant"
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,7 +86,10 @@ MonoBehaviour:
   dayManager: {fileID: 0}
   plantDay: 0
   plantTime: 0
+  plantSound: {fileID: 8300000, guid: 86fa6667c3825ce4f807cbf83b34ed9a, type: 3}
+  audioSource: {fileID: 0}
   stateMachine: {fileID: 0}
+  jars: []
 --- !u!114 &2792199273045122364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,10 +105,24 @@ MonoBehaviour:
   saplingState: {fileID: 436184439806166866}
   growingState: {fileID: 2289478153522571910}
   fruitState: {fileID: 1803727443605026836}
-  grownState: {fileID: 2088917085991694323}
+  grownState: {fileID: 0}
   currentState: {fileID: 0}
---- !u!65 &4034236005114563362
-BoxCollider:
+  jars: []
+--- !u!114 &6657483979173428791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7687406504066867572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76fc2f21b0b8867429c22b3cdf09b3e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientSO: {fileID: 11400000, guid: 71078ccfa9283444699bfd1784d182b2, type: 2}
+--- !u!136 &2480372883209893085
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -121,9 +139,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.5835905, y: 2.2897084, z: 0.7350731}
-  m_Center: {x: -0.48366785, y: 1.1580073, z: 0.13246346}
+  serializedVersion: 2
+  m_Radius: 0.7540016
+  m_Height: 2.377063
+  m_Direction: 1
+  m_Center: {x: -0.524065, y: 1.0791954, z: 0}
 --- !u!1001 &3111015114016315854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -135,6 +155,10 @@ PrefabInstance:
     - target: {fileID: 5976777546135414989, guid: 11e50aecfbb2c6243af24d4c812062c8, type: 3}
       propertyPath: m_Name
       value: P1_Grown
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976777546135414989, guid: 11e50aecfbb2c6243af24d4c812062c8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8574860908291271208, guid: 11e50aecfbb2c6243af24d4c812062c8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -182,17 +206,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11e50aecfbb2c6243af24d4c812062c8, type: 3}
---- !u!114 &2088917085991694323 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4022234290389988925, guid: 11e50aecfbb2c6243af24d4c812062c8, type: 3}
-  m_PrefabInstance: {fileID: 3111015114016315854}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b231bf207ac76774fbf6ed199603aec2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &6641838942058836966 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8574860908291271208, guid: 11e50aecfbb2c6243af24d4c812062c8, type: 3}
@@ -249,6 +262,10 @@ PrefabInstance:
     - target: {fileID: 3545742042487786480, guid: 04efb0024e8f3504a98351e079489786, type: 3}
       propertyPath: m_Name
       value: P1_Growing
+      objectReference: {fileID: 0}
+    - target: {fileID: 3545742042487786480, guid: 04efb0024e8f3504a98351e079489786, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -3504854976091392382, guid: 04efb0024e8f3504a98351e079489786, type: 3}
@@ -401,6 +418,10 @@ PrefabInstance:
     - target: {fileID: 6638659671240678427, guid: 2459a8f8bb7971d41b80604a2c3f4111, type: 3}
       propertyPath: m_Name
       value: P1_Sapling
+      objectReference: {fileID: 0}
+    - target: {fileID: 6638659671240678427, guid: 2459a8f8bb7971d41b80604a2c3f4111, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -5485441698761403602, guid: 2459a8f8bb7971d41b80604a2c3f4111, type: 3}

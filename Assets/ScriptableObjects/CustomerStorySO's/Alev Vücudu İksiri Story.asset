@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac220dab2d9246e40a988402b9007d81, type: 3}
+  m_Name: "Alev V\xFCcudu \u0130ksiri Story"
+  m_EditorClassIdentifier: 
+  storyLines:
+  - "Dokundu\u011Fum her \u015Feyi ate\u015Fe vermek istiyorum."
+  - "Kimse beni tutamas\u0131n."
+  wantedPotion: {fileID: 11400000, guid: 59cd5ce534836f346bf8765e65e1d9bc, type: 2}

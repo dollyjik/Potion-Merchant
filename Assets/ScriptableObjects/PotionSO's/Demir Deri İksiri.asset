@@ -16,4 +16,5 @@ MonoBehaviour:
   PotionName: "Demir Deri \u0130ksiri"
   PotionIcon: {fileID: 0}
   PotionColor: {r: 0.8627451, g: 0.78431374, b: 0.22745098, a: 1}
+  PotionPrice: 350
   PotionPrefab: {fileID: 626237805090762794, guid: 3d7e9dc908e1e724ba283c955529d012, type: 3}

@@ -16,4 +16,5 @@ MonoBehaviour:
   PotionName: "Kan G\xFC\xE7lendirme \u0130ksiri"
   PotionIcon: {fileID: 0}
   PotionColor: {r: 0.5803922, g: 0.32941177, b: 0.3529412, a: 1}
+  PotionPrice: 800
   PotionPrefab: {fileID: 4768332399143111447, guid: 992bcfe5d3ce2c847878ecd1cdfbfe3d, type: 3}

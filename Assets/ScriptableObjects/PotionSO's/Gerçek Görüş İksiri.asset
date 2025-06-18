@@ -16,4 +16,5 @@ MonoBehaviour:
   PotionName: "Ger\xE7ek G\xF6r\xFC\u015F \u0130ksiri"
   PotionIcon: {fileID: 0}
   PotionColor: {r: 0.5568628, g: 0.78431374, b: 0.50980395, a: 1}
+  PotionPrice: 350
   PotionPrefab: {fileID: 8668275578840762480, guid: 3bad0dedc4520da408d771eff40fc15b, type: 3}

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4274443217414610955}
   - component: {fileID: 2184539166969718030}
   - component: {fileID: 6969235389062911372}
-  - component: {fileID: 2618673058785261068}
   - component: {fileID: 7612113413301483874}
   m_Layer: 0
   m_Name: Gonca_Fruit
@@ -88,28 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2618673058785261068
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6141553795743673942}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8443825647018872803, guid: 9149afe5f4178e64bbc87933d0a345f3, type: 3}
 --- !u!114 &7612113413301483874
 MonoBehaviour:
   m_ObjectHideFlags: 0

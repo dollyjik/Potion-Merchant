@@ -16,4 +16,5 @@ MonoBehaviour:
   PotionName: "Elektrik Direnci \u0130ksiri"
   PotionIcon: {fileID: 0}
   PotionColor: {r: 0.5568628, g: 0.92156863, b: 0.6156863, a: 1}
+  PotionPrice: 180
   PotionPrefab: {fileID: 4994452021206624455, guid: 9dc8515d1260c604ebf817f7766269eb, type: 3}

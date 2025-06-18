@@ -98,9 +98,10 @@ GameObject:
   - component: {fileID: 6738541303132832467}
   - component: {fileID: 7909178389553602022}
   - component: {fileID: 2104618975532118430}
+  - component: {fileID: 8147054290495061864}
   m_Layer: 0
   m_Name: "Elektrik Direnci \u0130ksiri"
-  m_TagString: canPickUp
+  m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,6 +171,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8147054290495061864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4994452021206624455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321c5d5131cccaf4d8ae6a5d2c08290e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionSO: {fileID: 11400000, guid: 5fe90b94561a94a48b89b71b7f30b70c, type: 2}
 --- !u!1 &8993879450503415863
 GameObject:
   m_ObjectHideFlags: 0

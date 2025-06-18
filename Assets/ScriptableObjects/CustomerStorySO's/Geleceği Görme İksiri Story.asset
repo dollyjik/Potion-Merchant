@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac220dab2d9246e40a988402b9007d81, type: 3}
+  m_Name: "Gelece\u011Fi G\xF6rme \u0130ksiri Story"
+  m_EditorClassIdentifier: 
+  storyLines:
+  - "Bir karar verece\u011Fim ama bedeli b\xFCy\xFCk olabilir."
+  - "Gelece\u011Fi sadece birazc\u0131k g\xF6rsem yeter."
+  wantedPotion: {fileID: 11400000, guid: ae7acaec4af39b543bb363cf275f2eb8, type: 2}

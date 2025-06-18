@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 3132382817378772915}
   - component: {fileID: 8212998559070742185}
   - component: {fileID: 4470039309216917212}
-  - component: {fileID: 6706032348159655395}
+  - component: {fileID: -4130554365955788053}
+  - component: {fileID: 6442015565699233078}
   m_Layer: 0
   m_Name: "\xD6kse Otu_Plant"
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,7 +51,10 @@ MonoBehaviour:
   dayManager: {fileID: 0}
   plantDay: 0
   plantTime: 0
+  plantSound: {fileID: 8300000, guid: 86fa6667c3825ce4f807cbf83b34ed9a, type: 3}
+  audioSource: {fileID: 0}
   stateMachine: {fileID: 0}
+  jars: []
 --- !u!114 &4470039309216917212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,8 +72,22 @@ MonoBehaviour:
   fruitState: {fileID: 2338729762748703707}
   grownState: {fileID: 0}
   currentState: {fileID: 0}
---- !u!65 &6706032348159655395
-BoxCollider:
+  jars: []
+--- !u!114 &-4130554365955788053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845454865268426709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76fc2f21b0b8867429c22b3cdf09b3e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientSO: {fileID: 11400000, guid: 1847c8deb96cb6642881390fc0fc0ed3, type: 2}
+--- !u!136 &6442015565699233078
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -86,9 +104,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.2665455, z: 1}
-  m_Center: {x: 0, y: 0.60619724, z: 0}
+  serializedVersion: 2
+  m_Radius: 0.3048541
+  m_Height: 1.3871647
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5466954, z: 0}
 --- !u!1 &2865898787492404284
 GameObject:
   m_ObjectHideFlags: 0

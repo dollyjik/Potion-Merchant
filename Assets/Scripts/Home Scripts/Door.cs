@@ -9,14 +9,19 @@ public class Door : MonoBehaviour
     private Quaternion closedRotation;
     private Quaternion openRotation;
 
+    [SerializeField] private AudioClip doorSFX;
+    [SerializeField] private AudioSource audioSource;
+    
     private void Start()
     {
+        audioSource = this.gameObject.AddComponent<AudioSource>().GetComponent<AudioSource>();
         closedRotation = transform.rotation;
         openRotation = Quaternion.Euler(transform.eulerAngles + Vector3.down * openAngle);
     }
 
     public void ToggleDoor()
     {
+        audioSource.PlayOneShot(doorSFX);
         isOpen = !isOpen;
         StopAllCoroutines();
         StartCoroutine(RotateDoor(isOpen ? openRotation : closedRotation));

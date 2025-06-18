@@ -16,4 +16,5 @@ MonoBehaviour:
   PotionName: "Gizlilik \u0130ksiri"
   PotionIcon: {fileID: 0}
   PotionColor: {r: 0.77254903, g: 0.6509804, b: 0.3764706, a: 1}
+  PotionPrice: 240
   PotionPrefab: {fileID: 3087270810971889625, guid: 6443ec057e0bd374fa1c25b9be78ef18, type: 3}
